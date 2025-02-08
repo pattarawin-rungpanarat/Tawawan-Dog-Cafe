@@ -215,6 +215,12 @@ button:active {
     font-size: 17px;
     box-sizing: border-box;
 }
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
 .forgot-account{
     margin-bottom: 5%;
     color: #007aff;

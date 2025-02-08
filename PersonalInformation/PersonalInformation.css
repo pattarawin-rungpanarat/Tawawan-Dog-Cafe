@@ -126,6 +126,28 @@ button:active {
 
 
 
+.PersonalInformation-container{
+    width: 80%;
+    margin: 20px auto;
+    background: rgb(255, 228, 196,0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 15%;
+}
+.PersonalInformation-title{
+    background: #FFE0C0;
+    width: 45%;
+    border-radius: 30px;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 22px;
+    color: #D60000;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 
 
 

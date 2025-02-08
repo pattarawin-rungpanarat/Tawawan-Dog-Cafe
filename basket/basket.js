@@ -159,7 +159,7 @@ function checkout() {
 }
 
 function completeOrder() {
-    document.getElementById("qrCodeContainer").style.display = "none"; // ซ่อน QR Code
+    document.getElementById("qrCodeContainer").style.display = "none"; 
     clearCart();
     alert("สั่งซื้อสำเร็จ");
 }

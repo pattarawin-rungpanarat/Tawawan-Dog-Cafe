@@ -163,7 +163,7 @@ button:active {
 .main-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 .logo {
     margin-bottom: 10px;
@@ -174,7 +174,7 @@ button:active {
     border-radius: 50%;
 }
 .title {
-    font-size: 36px;
+    font-size: 30px;
     margin-bottom: 5px;
 }
 .subtitle {
@@ -204,78 +204,47 @@ button:active {
     background-color: #f1f1f1;
     cursor: pointer;
 }
-.right .account {
-    display: flex;
-    align-items: center;
+.right input {
     width: 100%;
-    gap: 10px;
-    padding: 7px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-.right hr{
-    border: #d9d9d9 solid 1px;
-    width: 100%;
-}
-.right .account:hover {
-    background-color: #e8e8e8;
-}
-.right .account .avatar {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-weight: bold;
-    color: #ffffff;
-    font-size: 14px;
-}
-.right .account .text {
-    display: flex;
-    flex-direction: column;
-}
-.right .account .name {
-    font-size: 15px;
-    font-weight: 550;
-}
-.right .account .use {
-    font-size: 10px;
-    font-weight: 550;
-}
-.right .account .email {
-    font-size: 15px;
-    color: #666;
-}
-.right .another {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-.right .another i {
-    font-size: 25px;
-    color: #000;
-}
-.right .another i:hover {
-    font-size: 25px;
-    color: #F12A2A;
-}
-.right .red {
-    background-color: #ff0000;
-}
-.right .Gold {
-    background-color: #FFD700;
-}
-.right .Magenta {
-    background-color: #FF00FF;
-}
-.privacy {
-    width: 100%;
-    font-size: 14px;
-    color: #666;
-    text-align: start;
-    margin-top: 5px;
+    height: 55px;
+    padding: 10px;
+    margin-top: 10%;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 17px;
+    box-sizing: border-box;
+}
+.forgot-account{
+    margin-bottom: 5%;
+    color: #007aff;
+    border: none;
+    background: none;
+    text-align: left;
+    width: fit-content;
+}
+.buttons {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.buttons a{
+    margin-left: 5px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 35px;
+}
+.buttons button {
+    color: #ffffff;
+    border-radius: 35px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 52px;
+    padding: 10px 20px;
+    background: #007aff;
 }
 
 

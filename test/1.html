@@ -3,208 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tawawan Dog Café</title>
-    <link rel="icon" href="../images/icon.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url(../images/11.jpg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-        .header {
-            background-color: #FFE0C0;
-            align-items: center;
-            position: relative;
-            display: flex;
-        }
-        .header img{
-            height: 175px;
-            box-shadow: 1px 0 1px gray;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        .nav0{
-            margin-left: 15%;
-        }
-        .nav0 .nav1 {
-            display: flex;
-            gap: 30px;
-        }
-        .nav1 button {
-            background-color: #FDFDD0;
-            border: 1px solid #060606;
-            padding: 10px 25px;
-            cursor: pointer;
-            font-size: 2em;
-            color: #333;
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-radius: 20px;
-        }
-        .nav1 button:hover {
-            color: red;
-        }
-        .search-bar {
-            margin-top: 15px;
-            align-items: center;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            display: flex;
-        }
-        .search-bar input {
-            width: 100%;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            font-size: 1em;
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-            padding: 12px 20px;
-        }
-        .bg{
-            background: rgb(255, 239, 205,0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        .recommended {
-            display: grid;
-            height: 50px;
-            width: 130px;
-            background: #FFE0C0;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .recommendedtext {
-            text-align: center;
-            font-size: 22px;
-            color: #D60000;
-            font-weight: bold;
-        }
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            width: 100%;
-            max-width: 1200px;
-        }
-        .menu-item {
-            background-color: #fff;
-            border: 1px solid #000000;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .menu-item img {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-        .menu-item div {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        .menu-item button {
-            background-color: #f4c27a;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        
-        
-        
-        
-        footer {
-            background-color: #fff3e0;
-            text-align: center;
-            border-top: 2px solid #ffd89b;
-            margin-top: auto;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            left: 0;
-        }
-        footer p {
-            font-size: 16px;
-            margin: 5px 0;
-        }
-        
- 
-    </style>    
+    <title>QR Code พร้อมโลโก้</title>
+    <script src="https://unpkg.com/qr-code-styling"></script>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="../images/icon.png" alt="Tawawan Dog Café">
-        </div>
-        <div class="nav0">
-            <div class="nav1">
-                <button>หน้าแรก</button>
-                <button>หมวดหมู่</button>
-                <button>ล็อกอิน</button>
-                <button>ติดต่อร้าน</button>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="🔍︎ ค้นหาเมนู">
-            </div>
-        </div>
-    </header>
-    <div class="bg">
-        <div class="recommended">
-            <div class="recommended">เมนูแนะนำ</div>
-        </div>
-        <div class="menu">
-            <div class="menu-item">
-                <img src="cupcake.png" alt="Cupcake">
-                <div>เมนู **********</div>
-                <div>ราคา *** บาท</div>
-                <button>เพิ่มในตะกร้า</button>
-            </div>
-            <div class="menu-item">
-                <img src="cupcake.png" alt="Cupcake">
-                <div>เมนู **********</div>
-                <div>ราคา *** บาท</div>
-                <button>เพิ่มในตะกร้า</button>
-            </div>
-            <div class="menu-item">
-                <img src="bubble-tea.png" alt="Bubble Tea">
-                <div>เมนู **********</div>
-                <div>ราคา *** บาท</div>
-                <button>เพิ่มในตะกร้า</button>
-            </div>
-            <div class="menu-item">
-                <img src="cupcake.png" alt="Cupcake">
-                <div>เมนู **********</div>
-                <div>ราคา *** บาท</div>
-                <button>เพิ่มในตะกร้า</button>
-            </div>
-        </div>
-    </div>
-    <footer>
-        <div style="text-align: left; padding: 10px 20px;">
-            <h1 style="color: #ff5733; font-size: 24px;">Tawawan Dog Café</h1>
-            <p style="font-size: 18px; margin: 10px 0;"><strong>ช่องทางการติดต่อ</strong></p>
-            <p><img src="../images/menu/f.png" alt="Facebook" style="width: 30px; vertical-align: middle;"> Tawawan Dog Café</p>
-            <p><img src="../images/menu/t.png" alt="Phone" style="width: 30px; vertical-align: middle;"> 093 249 5900</p>
-            <p><img src="../images/menu/m.png" alt="Email" style="width: 30px; vertical-align: middle;"> <a href="mailto:nattaponkhamma160855@gmail.com">nattaponkhamma160855@gmail.com</a></p>
-            <p><strong>ที่อยู่:</strong> ชั้น บ้านหม้อแกงทอง อาคารพาณิชย์ 342 ตำบลแม่กา อำเภอเมืองพะเยา</p>
-            <p><strong>เวลาทำการ:</strong> 14.00 - 00.00</p>
-        </div>
-    </footer>
-    
+    <h2>QR Code พร้อมโลโก้</h2>
+    <div id="qrcode"></div>
 
-    </footer>
+    <script>
+        var xValue = "4";  // ตัวอย่างค่า x
+        var totalPrice = 1; // ราคาที่ต้องการ
+        var qrText = "00020101021229370016A000000677010111011300668284999015802TH5303764540" + 
+                     xValue + totalPrice.toFixed(2) + "6304A8B9";
+
+        const qrCode = new QRCodeStyling({
+            width: 256,
+            height: 256,
+            data: qrText,
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnwHaq2kzRs9xfspwsyPFNz894VXwFp46lUQ&s", // เปลี่ยนเป็น URL โลโก้ของคุณ
+            dotsOptions: { color: "#000", type: "rounded" },
+            backgroundOptions: { color: "#fff" },
+            imageOptions: { crossOrigin: "anonymous", margin: 5 } // ปรับขนาดโลโก้
+        });
+
+        qrCode.append(document.getElementById("qrcode"));
+    </script>
 </body>
 </html>

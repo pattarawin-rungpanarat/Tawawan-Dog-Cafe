@@ -151,13 +151,26 @@ function checkout() {
     }
     var qrText = "00020101021229370016A000000677010111011300668284999015802TH5303764540" + 
                 xValue + totalPrice.toFixed(2) + "63044B37";
-    new QRCode(document.getElementById("qrcode"), {
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
         text: qrText,
         width: 256,
         height: 256
     });
+    setTimeout(() => {
+        let qrContainer = document.getElementById("qrcode");
+        let icon = document.createElement("img");
+        icon.src = "./picture/icon.png";
+        icon.style.position = "absolute";
+        icon.style.width = "50px";
+        icon.style.height = "50px";
+        icon.style.left = "50%";
+        icon.style.top = "50%";
+        icon.style.transform = "translate(-50%, -50%)";
+        icon.style.borderRadius = "10px";
+        qrContainer.style.position = "relative";
+        qrContainer.appendChild(icon);
+    });
 }
-
 function completeOrder() {
     document.getElementById("qrCodeContainer").style.display = "none"; 
     clearCart();

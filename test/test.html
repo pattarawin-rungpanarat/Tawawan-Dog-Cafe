@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptPay QR Code</title>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/master/qrcode.min.js"></script>
+</head>
+<body>
+
+    <h1>PromptPay QR Code for Payment</h1>
+
+    <!-- QR code container -->
+    <div id="qrcode"></div>
+
+    <script type="text/javascript">
+        // กำหนดข้อมูลของ PromptPay QR code (ตัวอย่างเป็นหมายเลขโทรศัพท์)
+        var promptPayNumber = "0828499901"; // หมายเลข PromptPay
+        var amount = "10"; // จำนวนเงินที่จะโอน
+
+        // สร้าง QR code สำหรับ PromptPay
+        var promptPayQRCode = new QRCode(document.getElementById("qrcode"), {
+            text: "00020101021229370016A000000677010111011300668284999015802TH53037645406" + 
+                  + amount + ".005802TH6304C1CD", 
+            width: 256,
+            height: 256
+        });
+    </script>
+
+</body>
+</html>

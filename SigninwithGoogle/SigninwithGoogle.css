@@ -1,42 +1,19 @@
-.container {
-    display: flex;
-    justify-content: space-between;
-}
-.item {
-    width: 150px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    background-color: red;
-    color: #fff;
-}
-
-@media (max-width: 1200px) {
-   .item {
-     background-color: aquamarine;
-     width: 150px;
-     height: 150px;
-   }
-}
-
-@media (max-width: 900px) {
-    .item {
-      background-color: blue;
-      width: 100px;
-      height: 100px;
+@media (max-width: 768px) {
+    body {
+      background-color: lightgray;
     }
-}
-  
-@media (max-width: 600px) {
-    .item {
-      background-color:black;
-      width: 80px;
-      height: 80px;
-      font-size: 20px;
+  }
+  @media (min-width: 769px) and (max-width: 1024px) {
+    body {
+      background-color: lightblue;
     }
-}
+  }
+
+  @media (min-width: 1025px) {
+    body {
+      background-color: white;
+    }
+  }  
 body {
     font-family: 'Fahkwang', sans-serif;
     margin: 0;
@@ -104,7 +81,7 @@ a {
     text-decoration: none;
   }
 a:hover{
-    color: #D60000;
+    color: #007aff;
 }
 .menu-buttons {
     display: flex;
@@ -116,13 +93,6 @@ a:hover{
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-}
-.menu-buttons button:hover{
-    transform: scale(1.1);
-    color: red;
-}
-.menu-buttons button:active{
-    transform: scale(0.95);
 }
 .icon-buttons {
     display: flex;
@@ -145,11 +115,10 @@ a:hover{
     height: 24px;
 }
 button:hover {
-    color: red; 
+    color: #007aff; 
     transform: scale(1.05); 
     transition: all 0.3s ease-in-out; 
 }
-
 button:active {
     transform: scale(0.95);
     transition: all 0.1s ease-in-out;

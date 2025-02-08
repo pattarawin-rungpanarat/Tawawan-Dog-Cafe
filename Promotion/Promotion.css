@@ -160,14 +160,15 @@ button:active {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+    border: 1.5px solid #000000; 
 }
 .menu-item img {
     background: #FFF3D9;
     border-radius: 10%;
     width: 180px;
-    height: 180px;
     margin-left: 1%;
+    border: 1.5px solid #000000; 
 }
 .menu-details {
     background: #FFF3D9;
@@ -175,6 +176,7 @@ button:active {
     flex: 1;
     margin-left: 15px;
     text-align: center;
+    border: 1.5px solid #000000; 
 }
 .menu-name {
     margin: 10px;
@@ -182,64 +184,17 @@ button:active {
     font-weight: bold;
 }
 .menu-price {
+    text-align: left;
     margin: 10px;
-    font-size: 16px;
-    color: #888;
+    font-size: 18px;
+    color: #000000;
 }
-.cart-button {
-    background: #FFEFCD;
-    padding: 10px;
-    border-radius: 100%;
-    cursor: pointer;
+.pomo-expired {
     text-align: right;
-    align-items: center;
-    justify-content: right;
-    width: 60px;
-    height: 60px;
-    margin-top: 7%;
-}
-.cart-button img {
-    background: none;
-    width: 40px;
-    height: 40px;
-    margin: 0;
-}
-.cart-button:hover {
-    background: #efe7d5;
-    transform: scale(1.1);
-}
-.cart-button:active {
-    transform: scale(0.95);
-}
-.quantity-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    border-radius: 10px;
-    margin-top: 10%;
-}
-.quantity-container button {
-    background: #D60000;
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
+    margin: 10px;
     font-size: 18px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-.quantity-container .menu-price {
-    font-size: 24px;
-    color: black;
-}
-.quantity-container .number{
-    background: rgb(151, 151, 151 ,0.25);
-    border-radius: 10px;
-}
-.quantity-container span {
-    font-size: 18px;
-    font-weight: bold;
+    color: #D60000;
+    bottom: 0;
 }
 
 

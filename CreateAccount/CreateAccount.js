@@ -156,10 +156,12 @@ document.querySelectorAll(".input-group input").forEach(input => {
 function register() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    let account = document.getElementById("account").value;
 
     if (email && password) {
         localStorage.setItem("registeredemail", email);
         localStorage.setItem("registeredpassword", password);
+        localStorage.setItem("registeredaccount", account);
         alert("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
         window.location.href = "../login/login.html";
     } else {

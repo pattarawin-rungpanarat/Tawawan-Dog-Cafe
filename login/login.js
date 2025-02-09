@@ -41,6 +41,7 @@ function login() {
     let password = document.getElementById("password").value;
     let registeredemail = localStorage.getItem("registeredemail");
     let registeredpassword = localStorage.getItem("registeredpassword");
+    //let registeredaccount = localStorage.getItem("registeredaccount");
 
     if (!registeredemail) {
         alert("กรุณาสมัครสมาชิกก่อน!");
@@ -49,6 +50,7 @@ function login() {
     }
     if (email === registeredemail && password === registeredpassword) {
         alert("เข้าสู่ระบบสำเร็จ!");
+        //alert(registeredaccount);
         window.location.href = "../index/index.html";
     } else {
         alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");

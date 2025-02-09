@@ -133,3 +133,5 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+let registeredaccount = localStorage.getItem("registeredaccount");
+document.getElementById("account-btn").textContent = registeredaccount;

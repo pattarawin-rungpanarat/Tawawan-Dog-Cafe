@@ -53,3 +53,5 @@ document.addEventListener("DOMContentLoaded", function () {
         tooltip.style.top = top + "px";
     }
 });
+let registeredaccount = localStorage.getItem("registeredaccount");
+document.getElementById("account-btn").textContent = registeredaccount;

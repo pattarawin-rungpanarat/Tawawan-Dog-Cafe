@@ -176,3 +176,5 @@ function completeOrder() {
     clearCart();
     alert("สั่งซื้อสำเร็จ");
 }
+let registeredaccount = localStorage.getItem("registeredaccount");
+document.getElementById("account-btn").textContent = registeredaccount;

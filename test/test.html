@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PromptPay QR Code</title>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/master/qrcode.min.js"></script>
+    <title>สมัครสมาชิก</title>
 </head>
 <body>
+    <h2>สมัครสมาชิก</h2>
+    <input type="text" id="username" placeholder="ชื่อผู้ใช้">
+    <input type="password" id="password" placeholder="รหัสผ่าน">
+    <button onclick="register()">สมัคร</button>
+    <p>มีบัญชีแล้ว? <a href="./2.html">เข้าสู่ระบบ</a></p>
 
-    <h1>PromptPay QR Code for Payment</h1>
+    <script>
+        function register() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
 
-    <!-- QR code container -->
-    <div id="qrcode"></div>
-
-    <script type="text/javascript">
-        // กำหนดข้อมูลของ PromptPay QR code (ตัวอย่างเป็นหมายเลขโทรศัพท์)
-        var promptPayNumber = "0828499901"; // หมายเลข PromptPay
-        var amount = "10"; // จำนวนเงินที่จะโอน
-
-        // สร้าง QR code สำหรับ PromptPay
-        var promptPayQRCode = new QRCode(document.getElementById("qrcode"), {
-            text: "00020101021229370016A000000677010111011300668284999015802TH53037645406" + 
-                  + amount + ".005802TH6304C1CD", 
-            width: 256,
-            height: 256
-        });
+            if (username && password) {
+                localStorage.setItem("registeredUser", username);
+                localStorage.setItem("registeredPass", password);
+                alert("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
+                window.location.href = "./1.html"; // ไปที่หน้าล็อกอิน
+            } else {
+                alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+            }
+        }
     </script>
-
 </body>
 </html>

@@ -3,30 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code พร้อมโลโก้</title>
-    <script src="https://unpkg.com/qr-code-styling"></script>
+    <title>หน้าหลัก</title>
 </head>
 <body>
-    <h2>QR Code พร้อมโลโก้</h2>
-    <div id="qrcode"></div>
+    <h2>ยินดีต้อนรับ!</h2>
+    <button onclick="logout()">ออกจากระบบ</button>
 
     <script>
-        var xValue = "4";  // ตัวอย่างค่า x
-        var totalPrice = 1; // ราคาที่ต้องการ
-        var qrText = "00020101021229370016A000000677010111011300668284999015802TH5303764540" + 
-                     xValue + totalPrice.toFixed(2) + "6304A8B9";
-
-        const qrCode = new QRCodeStyling({
-            width: 256,
-            height: 256,
-            data: qrText,
-            image: "./picture/icon.png",
-            dotsOptions: { color: "#000", type: "rounded" },
-            backgroundOptions: { color: "#fff" },
-            imageOptions: { crossOrigin: "anonymous", margin: 5 }
-        });
-
-        qrCode.append(document.getElementById("qrcode"));
+        function logout() {
+            alert("ออกจากระบบเรียบร้อย!");
+            window.location.href = "./2.html"; // กลับไปหน้าล็อกอิน
+        }
     </script>
 </body>
 </html>

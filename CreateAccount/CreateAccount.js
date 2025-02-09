@@ -147,7 +147,7 @@ document.querySelector(".submit-btn").addEventListener("click", function (event)
         alert("รหัส OTP ไม่ถูกต้อง");
         event.preventDefault();
     } else {
-        alert("สมัครสมาชิก!");
+        alert("สมัครสมาชิกเสร็จสิ้น!");
     }
 });
 document.querySelectorAll(".input-group input").forEach(input => {

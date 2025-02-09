@@ -153,3 +153,16 @@ document.querySelector(".submit-btn").addEventListener("click", function (event)
 document.querySelectorAll(".input-group input").forEach(input => {
     input.addEventListener("input", validateOtp);
 });
+function register() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if (email && password) {
+        localStorage.setItem("registeredemail", email);
+        localStorage.setItem("registeredpassword", password);
+        alert("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
+        window.location.href = "../login/login.html";
+    } else {
+        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
+    }
+}

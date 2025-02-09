@@ -35,21 +35,25 @@ document.getElementById("toggle-password").addEventListener("click", function ()
         toggleIcon.classList.replace("bx-show", "bx-hide");
     }
 });
-document.querySelector(".login-btn").addEventListener("click", function (event) {
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
-    let emailError = document.getElementById("email-error").innerText.trim();
-    let passwordError = document.getElementById("password-error").innerText.trim(); 
-    if (email === "" || password === "") {
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-        event.preventDefault();
-    } else if (emailError !== "" || passwordError !== ""){
-        alert("กรุณากรอกข้อมูลให้ถูกต้อง");
-        event.preventDefault();
-    } else{
-        alert("ลงชื่อเข้าใช้สำเร็จ!!!!");
+
+function login() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let registeredemail = localStorage.getItem("registeredemail");
+    let registeredpassword = localStorage.getItem("registeredpassword");
+
+    if (!registeredemail) {
+        alert("กรุณาสมัครสมาชิกก่อน!");
+        window.location.href = "../CreateAccount/CreateAccount.html";
+        return;
     }
-});
+    if (email === registeredemail && password === registeredpassword) {
+        alert("เข้าสู่ระบบสำเร็จ!");
+        window.location.href = "../index/index.html";
+    } else {
+        alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+    }
+}
 
 // window.addEventListener("message", function (event) {
 //     console.log(event.data);

@@ -50,3 +50,10 @@ document.querySelector(".login-btn").addEventListener("click", function (event) 
         alert("ลงชื่อเข้าใช้สำเร็จ!!!!");
     }
 });
+
+// window.addEventListener("message", function (event) {
+//     console.log(event.data);
+//     if (event.data === "google success") {
+//         window.location.href = "/";
+//     }
+// });

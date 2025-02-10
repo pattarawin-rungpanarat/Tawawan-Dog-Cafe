@@ -43,17 +43,16 @@ function login() {
     let registeredpassword = localStorage.getItem("registeredpassword");
     //let registeredaccount = localStorage.getItem("registeredaccount");
 
-    if (!registeredemail) {
-        alert("กรุณาสมัครสมาชิกก่อน!");
+    if (email !== registeredemail) {
+        alert("ไม่มีบัญชีที่ลงทะเบียนด้วยข้อมูลนี้\nกรุณาสมัครสมาชิกก่อน!");
         window.location.href = "../CreateAccount/CreateAccount.html";
         return;
-    }
-    if (email === registeredemail && password === registeredpassword) {
+    }else if (email === registeredemail && password === registeredpassword) {
         alert("เข้าสู่ระบบสำเร็จ!");
         //alert(registeredaccount);
         window.location.href = "../index/index.html";
-    } else {
-        alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+    } else if (password !== registeredpassword) {
+        alert("รหัสผ่านไม่ถูกต้อง");
     }
 }
 

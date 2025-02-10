@@ -78,9 +78,8 @@ function validateOtp() {
 }
 function validatePassword() {
     let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirm-password").value;
     let passwordError = document.getElementById("password-error");
-    let confirmPasswordError = document.getElementById("confirm-password-error");
+    
     if (password.length < 8) {
         passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         document.getElementById("password").style.border = "2px solid red";
@@ -88,6 +87,11 @@ function validatePassword() {
         passwordError.innerText = "";
         document.getElementById("password").style.border = "1px solid #ccc";
     }
+}
+function validateconfirmPassword() {
+    let confirmPassword = document.getElementById("confirm-password").value;
+    let confirmPasswordError = document.getElementById("confirm-password-error");
+
     if (confirmPassword === "" || confirmPassword.length < 8) {
         confirmPasswordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         document.getElementById("confirm-password").style.border = "2px solid red";

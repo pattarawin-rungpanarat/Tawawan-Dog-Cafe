@@ -79,28 +79,29 @@ function validateOtp() {
 function validatePassword() {
     let password = document.getElementById("password").value;
     let passwordError = document.getElementById("password-error");
-    
-    if (password.length < 8) {
-        passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
-        document.getElementById("password").style.border = "2px solid red";
-    } else {
+
+    if (password === "") {
         passwordError.innerText = "";
         document.getElementById("password").style.border = "1px solid #ccc";
+    } else if (password.length < 8) {
+        passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
+        document.getElementById("password").style.border = "2px solid red";
     }
 }
 function validateconfirmPassword() {
+    let password = document.getElementById("password").value;
     let confirmPassword = document.getElementById("confirm-password").value;
     let confirmPasswordError = document.getElementById("confirm-password-error");
 
-    if (confirmPassword === "" || confirmPassword.length < 8) {
-        confirmPasswordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
-        document.getElementById("confirm-password").style.border = "2px solid red";
-    } else if (confirmPassword !== "" && password !== confirmPassword) {
-        confirmPasswordError.innerText = "รหัสผ่านไม่ตรงกัน";
-        document.getElementById("confirm-password").style.border = "2px solid red";
-    } else {
+    if (confirmPassword === ""){
         confirmPasswordError.innerText = "";
         document.getElementById("confirm-password").style.border = "1px solid #ccc";
+    }else if (confirmPassword.length < 8) {
+        confirmPasswordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
+        document.getElementById("confirm-password").style.border = "2px solid red";
+    } else if (password !== confirmPassword) {
+        confirmPasswordError.innerText = "รหัสผ่านไม่ตรงกัน";
+        document.getElementById("confirm-password").style.border = "2px solid red";
     }
 }
 function togglePasswordVisibility(inputId, toggleId) {
@@ -168,7 +169,5 @@ function register() {
         localStorage.setItem("registeredaccount", account);
         alert("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
         window.location.href = "../login/login.html";
-    } else {
-        alert("กรุณากรอกข้อมูลให้ครบถ้วน");
     }
 }

@@ -15,12 +15,13 @@ function validateEmail() {
 function validatePassword() {
     let password = document.getElementById("password").value;
     let passwordError = document.getElementById("password-error");
-    if (password.length < 8) {
-        passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
-        document.getElementById("password").style.border = "2px solid red";
-    } else {
+    
+    if (password === "") {
         passwordError.innerText = "";
         document.getElementById("password").style.border = "1px solid #ccc";
+    }else if (password.length < 8) {
+        passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
+        document.getElementById("password").style.border = "2px solid red";
     }
 }
 document.getElementById("toggle-password").addEventListener("click", function () {

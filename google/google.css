@@ -78,7 +78,6 @@ body {
     transition: background-color 0.3s ease;
     border: 1px solid black;
     border-radius: 35px;
-    
 }
 .account a{
     display: flex;

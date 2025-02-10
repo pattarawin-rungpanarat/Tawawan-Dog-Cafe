@@ -36,5 +36,4 @@ document.querySelector(".next-bnt").addEventListener("click", function (event) {
         return;
     }
 });
-let registeredaccount = localStorage.getItem("registeredaccount");
-document.getElementById("email").textContent = registeredaccount;
+document.getElementById("email").innerText = localStorage.getItem("registeredaccount");

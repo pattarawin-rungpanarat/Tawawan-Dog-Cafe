@@ -3,6 +3,8 @@ function validateEmail() {
     let errorMessage = document.getElementById("email-error");
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     let phonePattern = /^0[0-9]{9}$/;
+    let email = document.getElementById("email").value;
+    localStorage.setItem("registeredaccount", email);
     if (emailPattern.test(emailInput.value) || phonePattern.test(emailInput.value) || emailInput.value === "") {
         emailInput.style.border = "1px solid #ccc";
         errorMessage.innerText = "";

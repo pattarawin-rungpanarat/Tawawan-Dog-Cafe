@@ -1,0 +1,1 @@
+document.getElementById("email").innerText = localStorage.getItem("registeredaccount");

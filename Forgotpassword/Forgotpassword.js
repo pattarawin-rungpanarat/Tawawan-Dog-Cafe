@@ -3,10 +3,14 @@ function validateEmail() {
     let errorMessage = document.getElementById("email-error");
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     let phonePattern = /^0[0-9]{9}$/;
+    let registeredemail = localStorage.getItem("registeredemail");
 
     if (emailPattern.test(emailInput.value) || phonePattern.test(emailInput.value) || emailInput.value === "") {
         emailInput.style.border = "1px solid #ccc";
         errorMessage.innerText = "";
+    }  else if (email !== registeredemail) {
+        emailInput.style.border = "2px solid red";
+        errorMessage.innerText = "ไม่มีบัญชีที่ลงทะเบียนด้วยข้อมูลนี้";
     } else {
         emailInput.style.border = "2px solid red";
         errorMessage.innerText = "กรุณากรอกอีเมลหรือเบอร์โทรศัพท์ให้ถูกต้อง";
@@ -72,6 +76,9 @@ function validatePassword() {
     } else if (password.length < 8) {
         passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         document.getElementById("password").style.border = "2px solid red";
+    }else{
+        passwordError.innerText = "";
+        document.getElementById("password").style.border = "1px solid #ccc";
     }
 }
 function validateconfirmPassword() {
@@ -88,6 +95,9 @@ function validateconfirmPassword() {
     } else if (password !== confirmPassword) {
         confirmPasswordError.innerText = "รหัสผ่านไม่ตรงกัน";
         document.getElementById("confirm-password").style.border = "2px solid red";
+    } else {
+        confirmPasswordError.innerText = "";
+        document.getElementById("confirm-password").style.border = "1px solid #ccc";
     }
 }
 function togglePasswordVisibility(inputId, toggleId) {
@@ -108,7 +118,10 @@ document.getElementById("toggle-password").addEventListener("click", function ()
 document.getElementById("toggle-confirm-password").addEventListener("click", function () {
     togglePasswordVisibility("confirm-password", "toggle-confirm-password");
 });
-document.querySelector(".submit-btn").addEventListener("click", function (event) {
+document.querySelectorAll(".input-group input").forEach(input => {
+    input.addEventListener("input", validateOtp);
+});
+function register() {
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
     let confirmPassword = document.getElementById("confirm-password").value.trim();
@@ -130,11 +143,9 @@ document.querySelector(".submit-btn").addEventListener("click", function (event)
         alert("กรุณากรอกรหัส OTP");
         event.preventDefault();
         return;
-    }
-    else {
+    }else if (password) {
+        localStorage.setItem("registeredpassword", password);
         alert("กู้รหัสผ่านสำเร็จ!");
+        window.location.href = "../login/login.html";
     }
-});
-document.querySelectorAll(".input-group input").forEach(input => {
-    input.addEventListener("input", validateOtp);
-});
+}

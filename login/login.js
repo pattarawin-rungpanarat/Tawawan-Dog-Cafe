@@ -15,6 +15,7 @@ function validateEmail() {
 function validatePassword() {
     let password = document.getElementById("password").value;
     let passwordError = document.getElementById("password-error");
+    let registeredpassword = localStorage.getItem("registeredpassword");
     
     if (password === "") {
         passwordError.innerText = "";
@@ -22,6 +23,9 @@ function validatePassword() {
     }else if (password.length < 8) {
         passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         document.getElementById("password").style.border = "2px solid red";
+    }else{
+        passwordError.innerText = "";
+        document.getElementById("password").style.border = "1px solid #ccc";
     }
 }
 document.getElementById("toggle-password").addEventListener("click", function () {
@@ -54,6 +58,7 @@ function login() {
         window.location.href = "../index/index.html";
     } else if (password !== registeredpassword) {
         alert("รหัสผ่านไม่ถูกต้อง");
+        document.getElementById("password").value = "";
     }
 }
 

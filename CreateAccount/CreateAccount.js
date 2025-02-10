@@ -1,7 +1,7 @@
 function validateAccount() {
     let accountInput = document.getElementById("account");
     let errorMessage = document.getElementById("account-error");
-    let accountPattern = /^[a-zA-Z0-9ก-๙]{4,}$/; 
+    let accountPattern = /^(?! )[a-zA-Z0-9ก-ฮ๑-๙ ]{4,}(?<! )$/; // \w อักขระพิเศษ
     if (accountPattern.test(accountInput.value) || accountInput.value === "") {
         accountInput.style.border = "1px solid #ccc";
         errorMessage.innerText = "";
@@ -69,7 +69,7 @@ function validateOtp() {
     let otpInputs = document.querySelectorAll(".input-group input");
     let otpValue = Array.from(otpInputs).map(input => input.value.trim()).join("");
     let otpErrorMessage = document.getElementById("otp-error");
-    if (otpValue !== generatedOtp & otpValue.length == 6) {
+    if (otpValue !== generatedOtp && otpValue.length == 6) {
         otpErrorMessage.innerText = "รหัส OTP ไม่ถูกต้อง";
         otpErrorMessage.style.color = "red";
     } else {
@@ -86,6 +86,9 @@ function validatePassword() {
     } else if (password.length < 8) {
         passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         document.getElementById("password").style.border = "2px solid red";
+    }else{
+        passwordError.innerText = "";
+        document.getElementById("password").style.border = "1px solid #ccc";
     }
 }
 function validateconfirmPassword() {
@@ -102,6 +105,9 @@ function validateconfirmPassword() {
     } else if (password !== confirmPassword) {
         confirmPasswordError.innerText = "รหัสผ่านไม่ตรงกัน";
         document.getElementById("confirm-password").style.border = "2px solid red";
+    } else {
+        confirmPasswordError.innerText = "";
+        document.getElementById("confirm-password").style.border = "1px solid #ccc";
     }
 }
 function togglePasswordVisibility(inputId, toggleId) {
@@ -122,10 +128,13 @@ document.getElementById("toggle-password").addEventListener("click", function ()
 document.getElementById("toggle-confirm-password").addEventListener("click", function () {
     togglePasswordVisibility("confirm-password", "toggle-confirm-password");
 });
-document.querySelector(".submit-btn").addEventListener("click", function (event) {
-    let account = document.getElementById("account").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
+document.querySelectorAll(".input-group input").forEach(input => {
+    input.addEventListener("input", validateOtp);
+});
+function register() {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let account = document.getElementById("account").value;
     let confirmPassword = document.getElementById("confirm-password").value.trim();
     let accountError = document.getElementById("account-error").innerText.trim();
     let emailError = document.getElementById("email-error").innerText.trim();
@@ -134,6 +143,7 @@ document.querySelector(".submit-btn").addEventListener("click", function (event)
     let otpInputs = document.querySelectorAll(".input-group input");
     let otpValue = Array.from(otpInputs).map(input => input.value.trim()).join("");
     let otpErrorMessage = document.getElementById("otp-error");
+    
     if (account === "" || email === "" || password === "" || confirmPassword === "") {
         alert("กรุณากรอกข้อมูลให้ครบถ้วน");
         event.preventDefault();
@@ -151,19 +161,7 @@ document.querySelector(".submit-btn").addEventListener("click", function (event)
         otpErrorMessage.style.color = "red";
         alert("รหัส OTP ไม่ถูกต้อง");
         event.preventDefault();
-    } else {
-        alert("สมัครสมาชิกเสร็จสิ้น!");
-    }
-});
-document.querySelectorAll(".input-group input").forEach(input => {
-    input.addEventListener("input", validateOtp);
-});
-function register() {
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let account = document.getElementById("account").value;
-
-    if (email && password) {
+    } else if (email && password) {
         localStorage.setItem("registeredemail", email);
         localStorage.setItem("registeredpassword", password);
         localStorage.setItem("registeredaccount", account);

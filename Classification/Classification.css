@@ -132,10 +132,6 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
-.icon-buttons button img {
-    width: 24px;
-    height: 24px;
-}
 button:hover {
     color: #007aff; 
     transform: scale(1.05); 
@@ -206,23 +202,24 @@ button:active {
     font-weight: bold;
 }
 .cart-button {
+    display: flex;
     background: #ffffff;
     border: none;
-    padding: 10px;
     border-radius: 100%;
     cursor: pointer;
-    text-align: right;
+    text-align: center;
     align-items: center;
     justify-content: right;
+    font-size: 55px;
     width: 60px;
     height: 60px;
     margin: 10px; 
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
 }
-.cart-button img {
-    background: none;
-    width: 40px;
-    height: 40px;
-    margin: 0;
+.cart-button .bx-basket {
+    font-size: 40px;
 }
 .cart-button:hover {
     transform: scale(1.2);

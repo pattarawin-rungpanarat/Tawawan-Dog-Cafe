@@ -133,10 +133,6 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
-.icon-buttons button img {
-    width: 24px;
-    height: 24px;
-}
 button:hover {
     color: #007aff; 
     transform: scale(1.05); 
@@ -146,6 +142,9 @@ button:active {
     transform: scale(0.95);
     transition: all 0.1s ease-in-out;
 }
+
+
+
 
 
 .menu-item {
@@ -178,7 +177,7 @@ button:active {
 }
 
 .menu-container {
-    width: 50%;
+    width: 70%;
     margin: 20px auto;
     background: rgb(255, 228, 196,0.5);
     padding: 20px;
@@ -227,6 +226,10 @@ button:active {
     margin: 5px;
     border-radius: 5px;
     font-size: 24px;
+}
+.menu-container .trash{
+    background: none;
+    color: #757575;
 }
 
 div#total-price-container {

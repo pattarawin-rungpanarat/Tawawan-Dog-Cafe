@@ -91,7 +91,7 @@ function renderCart() {
                 <button class="increase" onclick="changeQuantity(${index}, 1)">+</button>
             </td>
             <td>${itemTotal} บาท</td>
-            <td><button onclick="removeItem(${index})">❌</button></td>
+            <td><button class="trash" onclick="removeItem(${index})"><i class='bx bx-trash'></i></button></td>
         `;
 
         table.appendChild(row);

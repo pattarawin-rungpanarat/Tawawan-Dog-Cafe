@@ -110,10 +110,7 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
-.icon-buttons button img {
-    width: 24px;
-    height: 24px;
-}
+
 button:hover {
     color: #007aff; 
     transform: scale(1.05); 
@@ -197,11 +194,8 @@ button:active {
     height: 60px;
     margin-top: 7%;
 }
-.cart-button img {
-    background: none;
-    width: 40px;
-    height: 40px;
-    margin: 0;
+.cart-button .bx-basket {
+    font-size: 40px;
 }
 .cart-button:hover {
     background: #efe7d5;

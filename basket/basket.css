@@ -215,6 +215,7 @@ button:active {
 .cart-table td, .cart-table th {
     padding: 10px;
     text-align: center;
+    border-radius: 10px;
 }
 .cart-table img {
     border-radius: 5px;

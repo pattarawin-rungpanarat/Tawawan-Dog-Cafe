@@ -55,11 +55,17 @@
 
 
     <div class="PersonalInformation-container">
-        <div class="PersonalInformation-title">ข้อมูลส่วนตัว</div>
+        <div class="PersonalInformation-title">ข้อมูลผู้ใช้</div>
         <br>
-        <div class="PersonalInformation-item">
-            <i class='bx bx-user'></i>
-            <div class="PersonalInformation-details">
+        <div class="PersonalInformation-grid">
+            
+            <div class="PersonalInformation-item">
+                <i class='bx bx-user'></i>
+                <div class="PersonalInformation-details">
+                    <div class="PersonalInformation-user">ชื่อผู้ใช้</div>
+                    <div class="PersonalInformation-name" id="username"></div>
+                </div>
+                <div class="edit"><Button>แก้ไข</Button></div>
             </div>
         </div>
         <button onclick="logout()">ออกจากระบบ</button>

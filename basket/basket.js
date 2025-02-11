@@ -83,7 +83,7 @@ function renderCart() {
         totalPrice += itemTotal;
 
         row.innerHTML = `
-            <td><img src="${item.image}" alt="${item.name}" width="80"> ${item.name}</td>
+            <td style="display: flex; align-items: center; justify-content: space-evenly;"><img src="${item.image}" alt="${item.name}" width="80"> ${item.name}</td>
             <td>${item.price} บาท</td>
             <td>
                 <button class="decrease" onclick="changeQuantity(${index}, -1)">-</button>

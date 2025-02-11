@@ -128,8 +128,9 @@ button:active {
 }
 
 
+
 .PersonalInformation-container{
-    width: 80%;
+    width: 50%;
     margin: 20px auto;
     background: rgb(255, 228, 196,0.5);
     padding: 20px;
@@ -149,7 +150,63 @@ button:active {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
+.PersonalInformation-grid {
+    display: grid;
+    gap: 20px;
+}
+.PersonalInformation-item {
+    background: #FFE0C0;
+    padding: 15px;
+    border-radius: 3px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.PersonalInformation-item i {
+    background: #FFF3D9;
+    border-radius: 10%;
+    font-size: 100px;
+    margin-left: 15px;
+}
+.PersonalInformation-details {
+    flex-direction: column;
+    margin-left: 20px;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.PersonalInformation-user {
+    margin: 0 10px;
+    font-size: 24px;
+    font-weight: 400;
+}
+.PersonalInformation-name {
+    margin: 0 10px;
+    font-size: 20px;
+}
+.edit{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.edit button{
+    background: #71605A;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+.edit-input {
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px;
+}
 
 
 

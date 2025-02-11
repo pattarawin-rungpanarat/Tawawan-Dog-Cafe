@@ -133,15 +133,12 @@ function register() {
     let otpErrorMessage = document.getElementById("otp-error");
     if (email === "" || password === "" || confirmPassword === "") {
         alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-        event.preventDefault();
     } else if (emailError !== "" || passwordError !== "" || confirmPasswordError !== "") {
         alert("กรุณากรอกข้อมูลให้ถูกต้อง");
-        event.preventDefault();
     } else if (otpValue.length < 6) {
         otpErrorMessage.innerText = "กรุณากรอก OTP ให้ครบถ้วน";
         otpErrorMessage.style.color = "red";
         alert("กรุณากรอกรหัส OTP");
-        event.preventDefault();
         return;
     }else if (password) {
         localStorage.setItem("registeredpassword", password);

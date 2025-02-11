@@ -3,27 +3,65 @@ function validateEmail() {
     let errorMessage = document.getElementById("email-error");
     let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     let phonePattern = /^0[0-9]{9}$/;
-    let email = document.getElementById("email").value;
+    let email = emailInput.value.trim();
     localStorage.setItem("registeredaccount", email);
-    if (emailPattern.test(emailInput.value) || phonePattern.test(emailInput.value) || emailInput.value === "") {
-        emailInput.style.border = "1px solid #ccc";
-        errorMessage.innerText = "";
-    } else {
-        emailInput.style.border = "2px solid red";
-        errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์ที่ถูกต้อง";
+    if (isSubmitAttempted) {
+        if (email === "") {
+            errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์";
+            emailInput.style.border = "2px solid red";
+            return false;
+        } else if (!emailPattern.test(email) && !phonePattern.test(email)) {
+            emailInput.style.border = "2px solid red";
+            errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์ที่ถูกต้อง";
+            return false;
+        } else {
+            emailInput.style.border = "1px solid #ccc";
+            errorMessage.innerText = "";
+            return true;
+        }
     }
+    return true;
 }
 document.querySelector(".next-bnt").addEventListener("click", function (event) {
-    let email = document.getElementById("email").value.trim();
-    let emailError = document.getElementById("email-error").innerText.trim(); 
+    isSubmitAttempted = false;
+    let emailInput = document.getElementById("email");
     let errorMessage = document.getElementById("email-error");
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let phonePattern = /^0[0-9]{9}$/;
+    let email = emailInput.value.trim();
     if (email === "") {
-        errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์"
+        errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์";
+        emailInput.style.border = "2px solid red";
         event.preventDefault();
-    } else if (emailError !== ""){
+    } else if (!emailPattern.test(email) && !phonePattern.test(email)) {
+        emailInput.style.border = "2px solid red";
         errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์ที่ถูกต้อง";
         event.preventDefault();
-    } else{
-        return;
+    } else {
+        window.location.href = "../SigninwithGooglePassword/SigninwithGooglePassword.html";
+    }
+});
+
+
+document.getElementById("email").addEventListener("keypress", function (event) {
+    isSubmitAttempted = false;
+    let emailInput = document.getElementById("email");
+    let errorMessage = document.getElementById("email-error");
+    let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let phonePattern = /^0[0-9]{9}$/;
+    let email = emailInput.value.trim();
+    if (event.key === "Enter") {
+        event.preventDefault();
+        if (email === "") {
+            errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์";
+            emailInput.style.border = "2px solid red";
+            event.preventDefault();
+        } else if (!emailPattern.test(email) && !phonePattern.test(email)) {
+            emailInput.style.border = "2px solid red";
+            errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์ที่ถูกต้อง";
+            event.preventDefault();
+        } else {
+            window.location.href = "../SigninwithGooglePassword/SigninwithGooglePassword.html";
+        }
     }
 });

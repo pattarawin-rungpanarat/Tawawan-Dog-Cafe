@@ -88,21 +88,25 @@ a:hover{
     gap: 20px;
 }
 .menu-buttons button {
-    background: #fef4d9;
+    background: #71605A;
+    color: #ffffff;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+    border: none;
 }
 .icon-buttons {
     display: flex;
     gap: 20px;
 }
 .icon-buttons button {
-    background: #FFEFCD;
+    background: #71605A;
+    color: #ffffff;
     padding: 8px;
     border-radius: 50%;
     cursor: pointer;
+    border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 24px;
     display: flex;
@@ -110,8 +114,11 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
+.bx-user-circle{
+    font-size: 32px;
+    height: 39px;
+}
 button:hover {
-    color: #007aff; 
     transform: scale(1.05); 
     transition: all 0.3s ease-in-out; 
 }
@@ -119,7 +126,6 @@ button:active {
     transform: scale(0.95);
     transition: all 0.1s ease-in-out;
 }
-
 
 
 .PersonalInformation-container{

@@ -84,6 +84,7 @@ body {
     align-items: center;
     gap: 10px;
     color: black;
+    text-decoration: none;
 }
 .avatar {
     width: 30px;
@@ -93,8 +94,7 @@ body {
     align-items: center;
     border-radius: 50%;
     font-weight: bold;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
+    color: #ffffff;
     background-color: #F12A2A;
 }
 .text {

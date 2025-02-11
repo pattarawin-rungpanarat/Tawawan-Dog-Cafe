@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code พร้อมเพย์</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        #qrcode {
+            position: relative;
+            display: inline-block;
+        }
+        #qrcode img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 30px;
+            height: 30px;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>สร้าง QR Code พร้อมเพย์</h2>
+    <label>หมายเลขพร้อมเพย์ (เบอร์โทร/เลขบัญชี):</label>
+    <input type="text" id="promptpayID" placeholder="เช่น 0812345678 หรือ 123456789012345">
+    <br>
+    <label>จำนวนเงิน (ไม่ใส่ก็ได้):</label>
+    <input type="number" id="amount" placeholder="เช่น 100.00">
+    <br>
+    <button onclick="generateQRCode()">สร้าง QR Code</button>
+    <br><br>
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQRCode() {
+            let id = document.getElementById("promptpayID").value;
+            let amount = document.getElementById("amount").value;
+            
+            if (!id) {
+                alert("กรุณาใส่หมายเลขพร้อมเพย์");
+                return;
+            }
+
+            let payload = generatePromptPayQR(id, amount);
+            document.getElementById("qrcode").innerHTML = "";
+            let qr = new QRCode(document.getElementById("qrcode"), {
+                text: payload,
+                width: 256,
+                height: 256,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            setTimeout(() => {
+                let qrCanvas = document.getElementById("qrcode").querySelector("canvas");
+                if (qrCanvas) {
+                    let ctx = qrCanvas.getContext("2d");
+                    let img = new Image();
+                    img.src = "https://upload.wikimedia.org/wikipedia/commons/6/6b/PromptPay_logo.png"; // โลโก้ PromptPay
+                    img.onload = function () {
+                        ctx.drawImage(img, qrCanvas.width / 2 - 15, qrCanvas.height / 2 - 15, 30, 30);
+                    };
+                }
+            }, 500);
+        }
+
+        function generatePromptPayQR(id, amount) {
+            let type = id.length >= 15 ? "02" : "01";
+            let formattedID = id.length >= 15 ? id : "0066" + id.replace(/^0/, "");
+            let amountStr = amount ? `54${("0000000000" + (amount * 100).toFixed(0)).slice(-10)}` : "";
+            
+            let payload = `0002010102112937A000000677010111${type}13${formattedID}${amountStr}53037646304`;
+            let crc = crc16(payload);
+            return payload + crc;
+        }
+
+        function crc16(input) {
+            let crc = 0xFFFF, polynomial = 0x1021;
+            for (let i = 0; i < input.length; i++) {
+                crc ^= input.charCodeAt(i) << 8;
+                for (let j = 0; j < 8; j++) {
+                    crc = (crc & 0x8000) ? (crc << 1) ^ polynomial : crc << 1;
+                }
+            }
+            return ("0000" + (crc & 0xFFFF).toString(16).toUpperCase()).slice(-4);
+        }
+    </script>
+</body>
+</html>

@@ -137,7 +137,6 @@ button:active {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: 15%;
 }
 .PersonalInformation-title{
     background: #FFE0C0;
@@ -176,12 +175,12 @@ button:active {
     align-items: flex-start;
     justify-content: center;
 }
-.PersonalInformation-user {
+.PersonalInformation-topic {
     margin: 0 10px;
     font-size: 24px;
     font-weight: 400;
 }
-.PersonalInformation-name {
+.PersonalInformation-story {
     margin: 0 10px;
     font-size: 20px;
 }
@@ -189,6 +188,7 @@ button:active {
     display: flex;
     align-items: center;
     margin-left: auto;
+    font-size: 12px;
 }
 .edit button{
     background: #71605A;
@@ -199,13 +199,44 @@ button:active {
     cursor: pointer;
     font-size: 16px;
     border: none;
-}
-.edit-input {
+}#username, .edit-input {
+    margin-top: 6px;
     font-size: 16px;
     padding: 5px;
-    border: 1px solid #ccc;
+    border: 0.5px;
     border-radius: 5px;
-    width: 150px;
+    width: 250px;
+    height: 30px;
+}
+.password-container {
+    position: relative;
+    width: 100%;
+}
+.password-container input {
+    margin-top: 6px;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+
+}
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    width: 15%;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
 }
 
 

@@ -5,6 +5,7 @@ function validateEmail() {
     let phonePattern = /^0[0-9]{9}$/;
     let email = emailInput.value.trim();
     localStorage.setItem("registeredaccount", email);
+    localStorage.setItem("registeredemail", email);
     if (isSubmitAttempted) {
         if (email === "") {
             errorMessage.innerText = "❗ป้อนอีเมลหรือหมายเลขโทรศัพท์";

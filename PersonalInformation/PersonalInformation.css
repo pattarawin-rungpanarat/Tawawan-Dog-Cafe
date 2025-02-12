@@ -238,7 +238,18 @@ button:active {
     display: block;
     margin-top: 5px;
 }
-
+.logout{
+    margin: 10px auto;
+    background: #D60000;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
 
 
 footer {

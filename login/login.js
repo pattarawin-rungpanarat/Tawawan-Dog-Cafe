@@ -15,19 +15,19 @@ function validateEmail() {
 function validatePassword() {
     let password = document.getElementById("password").value;
     let passwordError = document.getElementById("password-error");
-    let registeredpassword = localStorage.getItem("registeredpassword");
-    
+
     if (password === "") {
         passwordError.innerText = "";
         document.getElementById("password").style.border = "1px solid #ccc";
-    }else if (password.length < 8) {
+    } else if (password.length < 8) {
         passwordError.innerText = "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร";
         document.getElementById("password").style.border = "2px solid red";
-    }else{
+    } else {
         passwordError.innerText = "";
         document.getElementById("password").style.border = "1px solid #ccc";
     }
 }
+
 document.getElementById("toggle-password").addEventListener("click", function () {
     const passwordInput = document.getElementById("password");
     const toggleIcon = document.getElementById("toggle-password");
@@ -40,27 +40,30 @@ document.getElementById("toggle-password").addEventListener("click", function ()
         toggleIcon.classList.replace("bx-show", "bx-hide");
     }
 });
-
 function login() {
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let registeredemail = localStorage.getItem("registeredemail");
-    let registeredpassword = localStorage.getItem("registeredpassword");
-    //let registeredaccount = localStorage.getItem("registeredaccount");
+    let emailOrPhone = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    
+    let users = JSON.parse(localStorage.getItem("users")) || {};
 
-    if (email !== registeredemail) {
-        alert("ไม่มีบัญชีที่ลงทะเบียนด้วยข้อมูลนี้\nกรุณาสมัครสมาชิกก่อน!");
+    if (!users[emailOrPhone]) {
+        alert("ไม่มีบัญชีนี้ กรุณาสมัครสมาชิก");
         window.location.href = "../CreateAccount/CreateAccount.html";
         return;
-    }else if (email === registeredemail && password === registeredpassword) {
-        alert("เข้าสู่ระบบสำเร็จ!");
-        //alert(registeredaccount);
-        window.location.href = "../index/index.html";
-    } else if (password !== registeredpassword) {
+    }
+
+    if (users[emailOrPhone].password !== password) {
         alert("รหัสผ่านไม่ถูกต้อง");
         document.getElementById("password").value = "";
+        return;
     }
+
+    localStorage.setItem("loggedInUser", users[emailOrPhone].account);
+    alert(`เข้าสู่ระบบสำเร็จ! ยินดีต้อนรับ ${users[emailOrPhone].account}`);
+    window.location.href = "../index/index.html";
 }
+
+
 
 // window.addEventListener("message", function (event) {
 //     console.log(event.data);

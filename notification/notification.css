@@ -170,7 +170,7 @@ button:active {
     background: #FFE0C0;
     width: 45%;
     border-radius: 30px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 10px;
     font-size: 22px;
     color: #D60000;
@@ -178,8 +178,9 @@ button:active {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .menu-grid {
-    display: grid;
-    gap: 20px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
 }
 .menu-item {
     background: #FFE0C0;
@@ -190,12 +191,11 @@ button:active {
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.menu-item img {
+.menu-item .bx-bell {
     background: #FFF3D9;
     border-radius: 10%;
-    width: 180px;
-    height: 180px;
-    margin-left: 50px;
+    font-size: 100px;
+    margin-left: 15px;
 }
 .menu-details {
     background: #FFF3D9;
@@ -204,30 +204,38 @@ button:active {
     margin-left: 15px;
     text-align: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    gap: 80px;
+    cursor: pointer; 
 }
 .menu-name {
     margin: 10px;
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: bold;
+}
+.menu-topic{
+    margin: 10px;
+    font-size: 18px;
     font-weight: bold;
 }
 .cart-button {
     display: flex;
-    background: #ffffff;
+    background: none;
+    color: #757575e4;
     border: none;
     border-radius: 100%;
     cursor: pointer;
-    text-align: center;
-    align-items: center;
-    justify-content: right;
-    font-size: 55px;
+    font-size: 32px;
     width: 60px;
     height: 60px;
     margin: 10px; 
     align-items: center;
     flex-direction: column-reverse;
     justify-content: center;
+}
+.cart-button:hover{
+    color: #D60000
 }
 .cart-button .bx-basket {
     font-size: 40px;

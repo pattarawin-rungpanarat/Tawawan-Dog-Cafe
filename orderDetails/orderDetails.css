@@ -50,6 +50,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    justify-content: space-between;
 }
 .navbar {
     position: fixed;
@@ -156,8 +157,6 @@ button:active {
 
 
 
-
-
 .menu-container {
     width: 50%;
     margin: 20px auto;
@@ -171,7 +170,7 @@ button:active {
     background: #FFE0C0;
     width: 45%;
     border-radius: 30px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 10px;
     font-size: 22px;
     color: #D60000;
@@ -191,11 +190,10 @@ button:active {
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.menu-item img {
+.menu-item .bx-bell {
     background: #FFF3D9;
     border-radius: 10%;
-    width: 180px;
-    height: 180px;
+    font-size: 100px;
     margin-left: 15px;
 }
 .menu-details {
@@ -219,9 +217,6 @@ button:active {
     border: none;
     border-radius: 100%;
     cursor: pointer;
-    text-align: center;
-    align-items: center;
-    justify-content: right;
     font-size: 55px;
     width: 60px;
     height: 60px;
@@ -243,11 +238,10 @@ button:active {
 
 
 
-
-
 footer {
     background-color: #ffe5c2;
     text-align: center;
+    border-top: 2px solid #ffb77a;
     width: 100%;
     position: relative;
     bottom: 0;

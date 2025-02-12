@@ -137,6 +137,11 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
+#account-btn{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
 .bx-user-circle{
     font-size: 32px;
     height: 39px;
@@ -152,6 +157,88 @@ button:active {
 
 
 
+.menu-container {
+    width: 50%;
+    margin: 20px auto;
+    background: rgb(255, 228, 196,0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.menu-title {
+    background: #FFE0C0;
+    width: 45%;
+    border-radius: 30px;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 22px;
+    color: #D60000;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menu-grid {
+    display: grid;
+    gap: 20px;
+}
+.menu-item {
+    background: #FFE0C0;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.menu-item img {
+    background: #FFF3D9;
+    border-radius: 10%;
+    width: 180px;
+    height: 180px;
+    margin-left: 50px;
+}
+.menu-details {
+    background: #FFF3D9;
+    border-radius: 20px;
+    flex: 1;
+    margin-left: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-name {
+    margin: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.cart-button {
+    display: flex;
+    background: #ffffff;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: right;
+    font-size: 55px;
+    width: 60px;
+    height: 60px;
+    margin: 10px; 
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+.cart-button .bx-basket {
+    font-size: 40px;
+}
+.cart-button:hover {
+    transform: scale(1.2);
+
+}
+.cart-button:active {
+    transform: scale(0.95);
+}
 
 
 

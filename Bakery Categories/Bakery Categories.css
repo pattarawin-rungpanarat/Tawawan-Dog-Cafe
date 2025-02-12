@@ -114,6 +114,11 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
+#account-btn{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
 .bx-user-circle{
     font-size: 32px;
     height: 39px;
@@ -248,7 +253,6 @@ button:active {
 footer {
     background-color: #ffe5c2;
     text-align: center;
-    border-top: 2px solid #ffb77a;
     width: 100%;
     position: relative;
     bottom: 0;

@@ -114,6 +114,11 @@ a:hover{
     justify-content: center;
     height: 40px;
 }
+#account-btn{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
 .bx-user-circle{
     font-size: 32px;
     height: 39px;

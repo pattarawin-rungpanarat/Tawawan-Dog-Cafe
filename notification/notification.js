@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let notificationContainer = document.getElementById("notification-container");
 
     if (orders.length === 0) {
-        notificationContainer.innerHTML = "<p>ไม่มีการแจ้งเตือน</p>";
+        notificationContainer.innerHTML = "<i class='bx bx-message-dots'></i><br><p>ไม่มีการแจ้งเตือน</p>";
         return;
     }
 
@@ -25,17 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
         orderElement.innerHTML = `
             <div class="menu-item">
                 <i class='bx bx-bell'></i>
-                <div class="menu-details" onclick="viewOrder(${order.id})">
-                    <div class="menu-name">สั่งออเดอร์เสร็จสิ้น
-                        <div class="menu-topic">(${order.date})</div>
+                <div class="menu-details">
+                    <div class="menu-order" onclick="viewOrder(${order.id})">
+                        <div class="menu-name">สั่งออเดอร์เสร็จสิ้น
+                            <div class="menu-topic">(${order.date})</div>
+                        </div>
                     </div>
                     <button class="cart-button" onclick="deleteNotification(${order.id})">
                     <i class='bx bx-trash'></i>
                     </button>
-                </div>
+                    </div>
             </div>
         `;
-        notificationContainer.appendChild(orderElement);
+        notificationContainer.prepend(orderElement);
     });
 });
 

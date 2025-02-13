@@ -46,21 +46,24 @@ function login() {
     let password = document.getElementById("password").value;
     let registeredemail = localStorage.getItem("registeredemail");
     let registeredpassword = localStorage.getItem("registeredpassword");
-    //let registeredaccount = localStorage.getItem("registeredaccount");
 
-    if (email !== registeredemail) {
+    if (email === "admin@gmail.com" && password === "12345678") {
+        alert("เข้าสู่ระบบสำเร็จ! (บัญชีเจ้าของร้าน)");
+        localStorage.setItem("registeredemail", email);
+        localStorage.setItem("registeredpassword", password);
+        window.location.href = "../../user/index/index.html";
+    } else if (email === registeredemail && password === registeredpassword) {
+        alert("เข้าสู่ระบบสำเร็จ!");
+        window.location.href = "../../user/index/index.html";
+    } else if (email !== registeredemail) {
         alert("ไม่มีบัญชีที่ลงทะเบียนด้วยข้อมูลนี้\nกรุณาสมัครสมาชิกก่อน!");
         window.location.href = "../CreateAccount/CreateAccount.html";
-        return;
-    }else if (email === registeredemail && password === registeredpassword) {
-        alert("เข้าสู่ระบบสำเร็จ!");
-        //alert(registeredaccount);
-        window.location.href = "../index/index.html";
-    } else if (password !== registeredpassword) {
+    } else {
         alert("รหัสผ่านไม่ถูกต้อง");
         document.getElementById("password").value = "";
     }
 }
+
 
 // window.addEventListener("message", function (event) {
 //     console.log(event.data);

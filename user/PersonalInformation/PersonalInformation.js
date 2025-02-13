@@ -1,6 +1,6 @@
 function logout() {
     alert("ออกจากระบบเรียบร้อย!");
-    window.location.href = "../Frist/frist.html";
+    window.location.href = "../../log-in/Frist/frist.html";
 }
 let registeredaccount = localStorage.getItem("registeredaccount");
 document.getElementById("account-btn").textContent = registeredaccount;

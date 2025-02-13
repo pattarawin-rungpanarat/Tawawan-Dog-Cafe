@@ -146,13 +146,13 @@ function completeOrder() {
     alert("สั่งซื้อสำเร็จ!");
     renderCart();
 }
-document.addEventListener("DOMContentLoaded", function() { 
+document.addEventListener("DOMContentLoaded", function() {
     let btn = document.getElementById("account-btn");
-    let loggedInUser = localStorage.getItem("loggedInUser");
+    let text = btn.innerText;
 
-    if (loggedInUser) {
-        btn.innerText = loggedInUser.length > 5 ? loggedInUser.substring(0, 5) + "..." : loggedInUser;
-    } else {
-        btn.innerText = "Guest";
+    if (text.length > 5) {
+        btn.innerText = text.substring(0, 5) + "...";
     }
 });
+let registeredaccount = localStorage.getItem("registeredaccount");
+document.getElementById("account-btn").textContent = registeredaccount;

@@ -132,9 +132,9 @@ document.querySelectorAll(".input-group input").forEach(input => {
     input.addEventListener("input", validateOtp);
 });
 function register() {
-    let account = document.getElementById("account").value.trim();
-    let emailOrPhone = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let account = document.getElementById("account").value;
     let confirmPassword = document.getElementById("confirm-password").value.trim();
     let accountError = document.getElementById("account-error").innerText.trim();
     let emailError = document.getElementById("email-error").innerText.trim();
@@ -143,31 +143,28 @@ function register() {
     let otpInputs = document.querySelectorAll(".input-group input");
     let otpValue = Array.from(otpInputs).map(input => input.value.trim()).join("");
     let otpErrorMessage = document.getElementById("otp-error");
-    if (!account || !emailOrPhone || !password || !confirmPassword) {
+    
+    if (account === "" || email === "" || password === "" || confirmPassword === "") {
         alert("กรุณากรอกข้อมูลให้ครบถ้วน");
-        return;
-    }
-    if (accountError || emailError || passwordError || confirmPasswordError) {
+
+    } else if (accountError !== "" || emailError !== "" || passwordError !== "" || confirmPasswordError !== "") {
         alert("กรุณากรอกข้อมูลให้ถูกต้อง");
+
+    } else if (otpValue.length < 6) {
+        otpErrorMessage.innerText = "กรุณากรอก OTP ให้ครบถ้วน";
+        otpErrorMessage.style.color = "red";
+        alert("กรุณากรอกรหัส OTP");
+
         return;
-    }
-    if (otpValue.length < 6 || otpValue !== generatedOtp) {
+    } else if (otpValue !== generatedOtp & otpValue.length == 6) {
         otpErrorMessage.innerText = "รหัส OTP ไม่ถูกต้อง";
         otpErrorMessage.style.color = "red";
         alert("รหัส OTP ไม่ถูกต้อง");
-        return;
-    }
-    // ดึงข้อมูลผู้ใช้ทั้งหมดจาก localStorage
-    let users = JSON.parse(localStorage.getItem("users")) || {};
-    // ตรวจสอบว่าอีเมลหรือเบอร์นี้เคยลงทะเบียนแล้วหรือไม่
-    if (users[emailOrPhone]) {
-        alert("อีเมลหรือเบอร์โทรศัพท์นี้เคยสมัครสมาชิกแล้ว กรุณาเข้าสู่ระบบ");
+    } else if (email && password) {
+        localStorage.setItem("registeredemail", email);
+        localStorage.setItem("registeredpassword", password);
+        localStorage.setItem("registeredaccount", account);
+        alert("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
         window.location.href = "../login/login.html";
-        return;
     }
-    // บันทึกข้อมูลผู้ใช้ใหม่
-    users[emailOrPhone] = { account, password };
-    localStorage.setItem("users", JSON.stringify(users));
-    alert("สมัครสมาชิกสำเร็จ! กรุณาเข้าสู่ระบบ");
-    window.location.href = "../login/login.html";
 }

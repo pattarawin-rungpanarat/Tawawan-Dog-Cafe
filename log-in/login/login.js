@@ -15,7 +15,6 @@ function validateEmail() {
 function validatePassword() {
     let password = document.getElementById("password").value;
     let passwordError = document.getElementById("password-error");
-    let registeredpassword = localStorage.getItem("registeredpassword");
     
     if (password === "") {
         passwordError.innerText = "";
@@ -51,7 +50,7 @@ function login() {
         alert("เข้าสู่ระบบสำเร็จ! (บัญชีเจ้าของร้าน)");
         localStorage.setItem("registeredemail", email);
         localStorage.setItem("registeredpassword", password);
-        window.location.href = "../../user/index/index.html";
+        window.location.href = "../../admin/index/index.html";
     } else if (email === registeredemail && password === registeredpassword) {
         alert("เข้าสู่ระบบสำเร็จ!");
         window.location.href = "../../user/index/index.html";

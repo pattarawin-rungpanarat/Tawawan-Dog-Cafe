@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (email === "admin@gmail.com" && password !== "12345678") {
             passwordInput.style.border = "2px solid red";
-            errorMessage.innerText = "❗บัญชีนี้ต้องใช้รหัสผ่าน 12345678";
+            errorMessage.innerText = "❗รหัสผ่านไม่ถูกต้อง ลองอีกครั้งหรือคลิก ลืมรหัสผ่าน เพื่อรีเซ็ตรหัส";
             event.preventDefault();
         } else if (password === "") {
             passwordInput.style.border = "2px solid red";
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
             event.preventDefault();
             if (email === "admin@gmail.com" && password !== "12345678") {
                 passwordInput.style.border = "2px solid red";
-                errorMessage.innerText = "❗บัญชีนี้ต้องใช้รหัสผ่าน 12345678";
+                errorMessage.innerText = "❗รหัสผ่านไม่ถูกต้อง ลองอีกครั้งหรือคลิก ลืมรหัสผ่าน เพื่อรีเซ็ตรหัส";
                 event.preventDefault();
             } else if (password === "") {
                 passwordInput.style.border = "2px solid red";

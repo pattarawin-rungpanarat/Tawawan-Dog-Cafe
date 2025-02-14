@@ -1,7 +1,11 @@
 function logout() {
-    alert("ออกจากระบบเรียบร้อย!");
-    window.location.href = "../../log-in/Frist/frist.html";
+    let confirmlogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
+    if (confirmlogout) {
+        alert("ออกจากระบบเรียบร้อย!");
+        window.location.href = "../../log-in/Frist/frist.html";
+    }
 }
+
 let registeredaccount = localStorage.getItem("registeredaccount");
 document.getElementById("account-btn").textContent = registeredaccount;
 

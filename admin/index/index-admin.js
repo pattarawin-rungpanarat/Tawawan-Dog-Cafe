@@ -55,3 +55,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    function checkMenuItems() {
+        const menuGrid = document.querySelector(".menu-grid");
+        let menuItems = document.querySelectorAll(".menu-item");
+        if (menuItems.length < 4) {
+            if (!document.querySelector(".menu-item-edit")) {
+                let addMenuItem = document.createElement("div");
+                addMenuItem.classList.add("menu-item-edit");
+                addMenuItem.innerHTML = `
+                    <label class="file-upload">
+                        <i class='bx bx-landscape'></i>
+                        <input type="file">
+                    </label>
+                    <div class="menu-details-edit">
+                        <div class="menu-name-edit">+ เพิ่มเมนู</div>
+                    </div>
+                `;
+                menuGrid.appendChild(addMenuItem);
+            }
+        } else {
+            let existingAddButton = document.querySelector(".menu-item-edit");
+            if (existingAddButton) {
+                existingAddButton.remove();
+            }
+        }
+    }
+    checkMenuItems();
+
+    document.querySelectorAll(".bx-trash").forEach(button => {
+        button.addEventListener("click", function () {
+            setTimeout(checkMenuItems, 100);
+        });
+    });
+});

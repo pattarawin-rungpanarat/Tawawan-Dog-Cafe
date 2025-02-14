@@ -14,7 +14,7 @@ document.getElementById("email").innerText = localStorage.getItem("registeredema
 function login() {
     let registeredemail = localStorage.getItem("registeredemail");
     if (registeredemail === "admin@gmail.com") {
-        window.location.href = "../../admin/index/index.html";
+        window.location.href = "../../admin/index/index-admin.html";
     } else {
         window.location.href = "../../user/index/index.html";
     }

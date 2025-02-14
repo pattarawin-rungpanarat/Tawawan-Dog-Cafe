@@ -100,6 +100,12 @@ a:hover{
     display: flex;
     gap: 20px;
 }
+#account-btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
+}
 .icon-buttons button {
     background: #71605A;
     color: #ffffff;
@@ -113,11 +119,6 @@ a:hover{
     align-items: center;
     justify-content: center;
     height: 40px;
-}
-#account-btn{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
 }
 .bx-user-circle{
     font-size: 32px;
@@ -181,18 +182,42 @@ button:active {
     flex: 1;
     margin-left: 15px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 .menu-name {
     margin: 10px;
     font-size: 24px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
 }
 .menu-price {
     margin: 10px;
     font-size: 16px;
     color: #888;
 }
-.cart-button {
+.bx-trash {
+    color: #D60000;
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.bx-trash:hover {
+    transform: scale(1.5);
+}
+.bx-trash:active {
+    transform: scale(0.95);
+}
+.edit-button {
     background: #FFEFCD;
     padding: 10px;
     border-radius: 100%;
@@ -204,45 +229,15 @@ button:active {
     height: 60px;
     margin-top: 7%;
 }
-.cart-button .bx-basket {
+.edit-button .bx-edit-alt {
     font-size: 40px;
 }
-.cart-button:hover {
+.edit-button:hover {
     background: #efe7d5;
     transform: scale(1.1);
 }
-.cart-button:active {
+.edit-button:active {
     transform: scale(0.95);
-}
-.quantity-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    border-radius: 10px;
-    margin-top: 10%;
-}
-.quantity-container button {
-    background: #D60000;
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 50%;
-}
-.quantity-container .menu-price {
-    font-size: 24px;
-    color: black;
-}
-.quantity-container .number{
-    background: rgb(151, 151, 151 ,0.25);
-    border-radius: 10px;
-}
-.quantity-container span {
-    font-size: 18px;
-    font-weight: bold;
 }
 
 

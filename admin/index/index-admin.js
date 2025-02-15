@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 addMenuItem.innerHTML = `
                     <label class="file-upload">
                         <i class='bx bx-landscape'></i>
-                        <input type="file">
                     </label>
                     <div class="menu-details-edit">
                         <div class="menu-name-edit">+ เพิ่มเมนู</div>

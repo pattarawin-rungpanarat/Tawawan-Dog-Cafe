@@ -14,7 +14,7 @@
       background-color: white;
     }
   }  
-body {
+  body {
     font-family: 'Fahkwang', sans-serif;
     margin: 0;
     padding: 0;
@@ -28,6 +28,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 .navbar {
     position: fixed;
@@ -79,7 +80,7 @@ body {
 a {
     color: black;
     text-decoration: none;
-}
+  }
 a:hover{
     color: #007aff;
 }
@@ -100,12 +101,6 @@ a:hover{
     display: flex;
     gap: 20px;
 }
-#account-btn {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100px;
-}
 .icon-buttons button {
     background: #71605A;
     color: #ffffff;
@@ -119,6 +114,12 @@ a:hover{
     align-items: center;
     justify-content: center;
     height: 40px;
+}
+#account-btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100px;
 }
 .bx-user-circle{
     font-size: 32px;

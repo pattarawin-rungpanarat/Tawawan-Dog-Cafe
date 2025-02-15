@@ -48,8 +48,9 @@ function login() {
 
     if (email === "admin@gmail.com" && password === "12345678") {
         alert("เข้าสู่ระบบสำเร็จ! (บัญชีเจ้าของร้าน)");
-        localStorage.setItem("registeredemail", email);
-        localStorage.setItem("registeredpassword", password);
+        localStorage.setItem("registeredemailadmin", email);
+        localStorage.setItem("registeredpasswordadmin", password);
+        localStorage.setItem("registeredaccountadmin", "Admin");
         window.location.href = "../../admin/index/index-admin.html";
     } else if (email === registeredemail && password === registeredpassword) {
         alert("เข้าสู่ระบบสำเร็จ!");

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tawawan Dog Café</title>
     <link rel="icon" href="./picture/icon.png">
-    <link href="./orderDetails-admin.css" rel="stylesheet">
+    <link href="./PersonalInformation-admin.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
     <header class="header">
         <div class="navbar">
             <div class="logo">
-                <a href="./index-admin.html"><img src="./picture/icon.png" alt="Tawawan Dog Café"></a>
+                <a href="./PersonalInformation-admin.html"><img src="./picture/icon.png" alt="Tawawan Dog Café"></a>
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="  ค้นหาเมนู">
@@ -32,22 +32,43 @@
     </header>
 
 
-    <div class="order-container">
-        <div class="order-title">รายละเอียดออเดอร์</div>
-        <div id="order-details"></div>
-        <div class="number">
-            <div class="total-price"></div>
-            <div class="total-quantity"></div>
+    <div class="PersonalInformation-container">
+        <div class="PersonalInformation-title">ข้อมูลผู้ใช้</div>
+        <br>
+        <div class="PersonalInformation-grid">
+            <div class="PersonalInformation-item">
+                <i class='bx bx-user'></i>
+                <div class="PersonalInformation-details">
+                    <div class="PersonalInformation-topic">ชื่อผู้ใช้</div>
+                    <input class="PersonalInformation-story" id="username" readonly />
+                </div>
+                <div class="edit"><Button>แก้ไข</Button></div>
+            </div>
+            <div class="PersonalInformation-item">
+                <i id= "icon" class='bx bx-envelope'></i>
+                <div class="PersonalInformation-details">
+                    <div id="label" class="PersonalInformation-topic">อีเมล</div>
+                    <div class="PersonalInformation-story" id="email-phone"></div>
+                </div>
+                <div class="edit" style="text-decoration: underline; color: blue;">ยืนยันแล้ว</div>
+            </div>
+            <div class="PersonalInformation-item">
+                <i class='bx bx-key'></i>
+                <div class="PersonalInformation-details">
+                    <div class="PersonalInformation-topic">รหัสผ่าน</div>
+                    <div class="password-container">
+                        <input type="password" id="password" class="PersonalInformation-story" readonly />
+                        <i class='bx bx-hide' id="toggle-password"></i>
+                    </div>
+                    <small id="password-error" class="error-message"></small>  
+                </div>
+                <div class="edit"><button id="edit-button">แก้ไข</button></div>
+            </div>
         </div>
-        <div class="bnt">
-            <button onclick="completeOrder()" id="finish-button" class="sumit-button">เสร็จสิ้น</button>
-            <a href="../notification/notification-admin.html"><button class="back-button">ย้อนกลับ</button></a>
-        </div>
+        <button onclick="logout()" class="logout"><i class='bx bx-log-out' style="margin-right: 5px;"></i>ออกจากระบบ</button>
     </div>
 
-
-
-<footer>
+    <footer>
         <div class="footer-container">
             <h1 class="footer-title">Tawawan Dog Café</h1>
             
@@ -70,5 +91,5 @@
         </div>
     </footer>
 </body>
-<script src="./orderDetails-admin.js"></script>
+<script src="./PersonalInformation-admin.js"></script>
 </html>

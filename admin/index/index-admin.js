@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let btn = document.getElementById("account-btn");
-    let text = btn.innerText;
+    let registeredAccount =localStorage.getItem("registeredaccountadmin");
 
-    if (text.length > 2) {
-        btn.innerText = text.substring(0, 3) + "...";
+    if (registeredAccount.length > 5) {
+        btn.innerText = registeredAccount.substring(0, 5) + "...";
+    } else {
+        btn.innerText = registeredAccount;
     }
 });
-let registeredaccount = localStorage.getItem("registeredaccount");
-document.getElementById("account-btn").textContent = registeredaccount;
 
 document.addEventListener("DOMContentLoaded", function () {
     const deleteButtons = document.querySelectorAll(".bx-trash");
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
             if (confirm("คุณแน่ใจหรือไม่ว่าต้องการลบเมนูนี้?")) {
                 let menuItem = this.closest(".menu-item");
                 menuItem.remove();
-                // อาจเพิ่มโค้ดเพื่อลบข้อมูลจาก localStorage หรือฐานข้อมูล
             }
         });
     });

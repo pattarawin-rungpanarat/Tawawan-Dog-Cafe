@@ -24,11 +24,10 @@ body {
     background-attachment: fixed;
     padding-top: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    justify-content: space-evenly;
 }
 .navbar {
     position: fixed;
@@ -136,8 +135,8 @@ button:active {
 
 
 
-.menu-container {
-    width: 80%;
+.PersonalInformation-container{
+    width: 50%;
     margin: 20px auto;
     background: rgb(255, 228, 196,0.5);
     padding: 20px;
@@ -145,7 +144,7 @@ button:active {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-.menu-title {
+.PersonalInformation-title{
     background: #FFE0C0;
     width: 45%;
     border-radius: 30px;
@@ -156,99 +155,107 @@ button:active {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.menu-grid {
+.PersonalInformation-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
-.menu-item {
+.PersonalInformation-item {
     background: #FFE0C0;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 3px;
     display: flex;
-    justify-content: space-between;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.menu-item img {
+.PersonalInformation-item i {
     background: #FFF3D9;
     border-radius: 10%;
-    width: 180px;
-    height: 180px;
-    margin-left: 1%;
-}
-.menu-details {
-    background: #FFF3D9;
-    border-radius: 20px;
-    flex: 1;
+    font-size: 100px;
     margin-left: 15px;
-    text-align: center;
 }
-.menu-name {
-    margin: 10px;
+.PersonalInformation-details {
+    flex-direction: column;
+    margin-left: 20px;
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+.PersonalInformation-topic {
+    margin: 0 10px;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 400;
 }
-.menu-price {
-    margin: 10px;
-    font-size: 16px;
-    color: #888;
+.PersonalInformation-story {
+    margin: 0 10px;
+    font-size: 20px;
 }
-.cart-button {
-    background: #FFEFCD;
-    padding: 10px;
-    border-radius: 100%;
-    cursor: pointer;
-    text-align: center;
-    align-items: center;
-    justify-content: right;
-    width: 60px;
-    height: 60px;
-    margin-top: 7%;
-}
-.cart-button .bx-basket {
-    font-size: 40px;
-}
-.cart-button:hover {
-    background: #efe7d5;
-    transform: scale(1.1);
-}
-.cart-button:active {
-    transform: scale(0.95);
-}
-.quantity-container {
+.edit{
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    border-radius: 10px;
-    margin-top: 10%;
+    margin-left: auto;
+    font-size: 12px;
 }
-.quantity-container button {
-    background: #D60000;
-    color: white;
-    border: none;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+.edit button{
+    background: #71605A;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
     cursor: pointer;
-    border-radius: 50%;
+    font-size: 16px;
+    border: none;
+}#username, .edit-input {
+    margin-top: 6px;
+    font-size: 16px;
+    padding: 5px;
+    border: 0.5px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
 }
-.quantity-container .menu-price {
-    font-size: 24px;
-    color: black;
+.password-container {
+    position: relative;
+    width: 100%;
 }
-.quantity-container .number{
-    background: rgb(151, 151, 151 ,0.25);
-    border-radius: 10px;
+.password-container input {
+    margin-top: 6px;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+
 }
-.quantity-container span {
+.password-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
     font-size: 18px;
-    font-weight: bold;
+    width: 15%;
 }
-
-
-
+.error-message {
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+.logout{
+    margin: 10px auto;
+    background: #D60000;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    align-items: center;
+}
 
 
 footer {

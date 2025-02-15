@@ -51,6 +51,11 @@ document.addEventListener("DOMContentLoaded", function () {
             passwordInput.style.border = "2px solid red";
             errorMessage.innerText = "❗รหัสผ่านไม่ถูกต้อง ลองอีกครั้งหรือคลิก ลืมรหัสผ่าน เพื่อรีเซ็ตรหัส";
             event.preventDefault();
+        } else if (email === "admin@gmail.com" && password === "12345678") {
+            localStorage.setItem("registeredemailadmin", email);
+            localStorage.setItem("registeredpasswordadmin", password);
+            localStorage.setItem("registeredaccountadmin", "Admin");
+            window.location.href = "../google-admin/google.html";
         } else {
             window.location.href = "../google/google.html";
         }
@@ -75,12 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 passwordInput.style.border = "2px solid red";
                 errorMessage.innerText = "❗รหัสผ่านไม่ถูกต้อง ลองอีกครั้งหรือคลิก ลืมรหัสผ่าน เพื่อรีเซ็ตรหัส";
                 event.preventDefault();
+            } else if (email === "admin@gmail.com" && password === "12345678") {
+                localStorage.setItem("registeredemailadmin", email);
+                localStorage.setItem("registeredpasswordadmin", password);
+                localStorage.setItem("registeredaccountadmin", "admin");
+                window.location.href = "../google-admin/google.html";
             } else {
                 window.location.href = "../google/google.html";
             }
         }
     });
 });
-
 
 document.getElementById("email").innerText = localStorage.getItem("registeredaccount");

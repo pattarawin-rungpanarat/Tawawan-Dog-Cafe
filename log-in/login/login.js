@@ -50,7 +50,7 @@ function login() {
         alert("เข้าสู่ระบบสำเร็จ! (บัญชีเจ้าของร้าน)");
         localStorage.setItem("registeredemailadmin", email);
         localStorage.setItem("registeredpasswordadmin", password);
-        localStorage.setItem("registeredaccountadmin", "Admin");
+        localStorage.setItem("registeredaccountadmin", "admin");
         window.location.href = "../../admin/index/index-admin.html";
     } else if (email === registeredemail && password === registeredpassword) {
         alert("เข้าสู่ระบบสำเร็จ!");

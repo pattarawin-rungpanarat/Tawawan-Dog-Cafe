@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let btn = document.getElementById("account-btn");
-    let text = btn.innerText;
+    let registeredAccount =localStorage.getItem("registeredaccountadmin");
 
-    if (text.length > 2) {
-        btn.innerText = text.substring(0, 3) + "...";
+    if (registeredAccount.length > 4) {
+        btn.innerText = registeredAccount.substring(0, 5) + "...";
+    } else {
+        btn.innerText = registeredAccount;
     }
 });
-let registeredaccount = localStorage.getItem("registeredaccount");
-document.getElementById("account-btn").textContent = registeredaccount;

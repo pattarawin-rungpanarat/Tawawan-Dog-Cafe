@@ -265,7 +265,12 @@ button:active {
     font-size: 18px;
     width: 50%;
 }
-.back-button{
+.bnt{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.sumit-button,.back-button{
     background: #5d4037;
     color: white;
     padding: 12px 20px;

@@ -158,24 +158,28 @@ button:active {
 
 
 
-.order-container {
+.menu-container {
     width: 50%;
     margin: 20px auto;
-    background: rgb(255, 228, 196,0.9);
+    background: rgb(255, 228, 196,0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;  
+    text-align: center;
 }
-.order-title {
+.menu-title {
+    background: #FFE0C0;
+    width: 45%;
+    border-radius: 30px;
     margin: 10px auto;
     padding: 10px;
     font-size: 22px;
     color: #D60000;
     font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .bx-message-dots{
-    margin: 50px;
+    margin-top: 50px;
     font-size: 100px;
     border-width: 100;
 }
@@ -185,7 +189,7 @@ button:active {
     border-radius: 10px;
 }
 .menu-item {
-    background: #ffc48a;
+    background: #FFE0C0;
     padding: 15px;
     border-radius: 8px;
     display: flex;
@@ -211,10 +215,6 @@ button:active {
     gap: 80px;
     cursor: pointer; 
 }
-.order-details {
-    font-size: 24px;
-    font-weight: bold;
-}
 .menu-name {
     margin: 10px;
     font-size: 28px;
@@ -225,55 +225,37 @@ button:active {
     font-size: 18px;
     font-weight: bold;
 }
-.cart-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 2px;
+.menu-order.read .menu-name {
+    color: #757575e4 !important; 
 }
-.cart-table tr {
-    background-color: #fff; 
-    border-radius: 10px; 
-}
-.cart-table td, .cart-table th {
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-}
-.cart-table img {
-    border-radius: 5px;
-}
-.cart-table th, .cart-table td {
-    padding: 10px;
-    border: 1px solid #adacac;
-}
-.cart-table th {
-    background: #cd9966;
-}
-.number{
+.cart-button {
     display: flex;
+    background: none;
+    color: #757575e4;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    font-size: 32px;
+    width: 60px;
+    height: 60px;
+    margin: 10px; 
     align-items: center;
-    gap: 10px;
-    width: 80%;
-    margin: 15px auto;
+    flex-direction: column-reverse;
+    justify-content: center;
 }
-.total-price,.total-quantity{
-    background: #ff683a;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    width: 50%;
+.cart-button:hover{
+    color: #D60000
 }
-.back-button{
-    background: #5d4037;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
+.cart-button .bx-basket {
+    font-size: 40px;
 }
+.cart-button:hover {
+    transform: scale(1.2);
 
+}
+.cart-button:active {
+    transform: scale(0.95);
+}
 
 
 

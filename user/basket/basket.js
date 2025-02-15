@@ -132,19 +132,24 @@ function completeOrder() {
         alert("ไม่พบสินค้า กรุณาตรวจสอบตะกร้าสินค้า");
         return;
     }
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    let userorders = JSON.parse(localStorage.getItem("userorders")) || [];
+    let adminOrders = JSON.parse(localStorage.getItem("adminOrders")) || [];
     let newOrder = {
         id: Date.now(),
         items: cart,
         date: new Date().toLocaleString()
     };
-    orders.push(newOrder);
+
+    userorders.push(newOrder);
+    adminOrders.push(newOrder);
     
-    localStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.setItem("userorders", JSON.stringify(userorders));
+    localStorage.setItem("adminOrders", JSON.stringify(adminOrders));
     localStorage.removeItem("cart");
 
     alert("สั่งซื้อสำเร็จ!");
-    renderCart();
+    location.reload();
 }
 document.addEventListener("DOMContentLoaded", function() {
     let btn = document.getElementById("account-btn");

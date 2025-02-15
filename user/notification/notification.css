@@ -167,7 +167,6 @@ button:active {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .menu-title {
     background: #FFE0C0;
     width: 45%;
@@ -215,6 +214,17 @@ button:active {
     align-items: center;
     gap: 80px;
     cursor: pointer; 
+}
+.menu-details-notification{
+    background: #FFF3D9;
+    border-radius: 20px;
+    flex: 1;
+    margin-left: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 33px;
 }
 .menu-name {
     margin: 10px;

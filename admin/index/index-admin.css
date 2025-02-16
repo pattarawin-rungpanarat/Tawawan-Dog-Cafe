@@ -2,18 +2,18 @@
     body {
       background-color: lightgray;
     }
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
+}
+@media (min-width: 769px) and (max-width: 1024px) {
     body {
       background-color: lightblue;
     }
-  }
+}
 
-  @media (min-width: 1025px) {
+@media (min-width: 1025px) {
     body {
       background-color: white;
     }
-  }  
+}  
 body {
     font-family: 'Fahkwang', sans-serif;
     margin: 0;
@@ -28,6 +28,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
+    justify-content: space-evenly;
 }
 .navbar {
     position: fixed;

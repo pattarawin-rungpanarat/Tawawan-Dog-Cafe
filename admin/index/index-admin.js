@@ -29,31 +29,40 @@ document.addEventListener("DOMContentLoaded", function () {
             let menuItem = this.closest(".menu-item");
             let nameElement = menuItem.querySelector(".menu-name");
             let priceElement = menuItem.querySelector(".menu-price");
+            
 
-            let nameInput = document.createElement("input");
-            nameInput.type = "text";
-            nameInput.value = nameElement.textContent.trim();
-            nameElement.replaceWith(nameInput);
+            if (!menuItem.dataset.editing) {
+                menuItem.dataset.editing = "true";
 
-            let priceInput = document.createElement("input");
-            priceInput.type = "number";
-            priceInput.value = parseInt(priceElement.textContent.replace(/\D/g, ""));
-            priceElement.replaceWith(priceInput);
+                let nameInput = document.createElement("input");
+                nameInput.type = "text";
+                nameInput.value = nameElement.textContent.trim();
+                nameElement.replaceWith(nameInput);
 
-            button.innerHTML = "<i class='bx bx-check'></i>";
+                let priceInput = document.createElement("input");
+                priceInput.type = "number";
+                priceInput.value = parseInt(priceElement.textContent.replace(/\D/g, ""));
+                priceElement.replaceWith(priceInput);
 
-            button.addEventListener("click", function () {
-                nameElement.textContent = nameInput.value;
-                priceElement.textContent = `ราคา ${priceInput.value} บาท`;
+                this.classList.replace("bx-edit-alt", "bx-check");
 
-                nameInput.replaceWith(nameElement);
-                priceInput.replaceWith(priceElement);
+                this.addEventListener("click", function saveEdit() {
+                    nameElement.textContent = nameInput.value;
+                    priceElement.textContent = `ราคา ${priceInput.value} บาท`;
 
-                button.innerHTML = "<i class='bx bx-edit-alt'></i>";
-            }, { once: true });
+                    nameInput.replaceWith(nameElement);
+                    priceInput.replaceWith(priceElement);
+
+                    this.classList.replace("bx-check", "bx-edit-alt");
+                    delete menuItem.dataset.editing;
+
+                    this.removeEventListener("click", saveEdit);
+                }, { once: true });
+            }
         });
     });
-});
+});;
+
 document.addEventListener("DOMContentLoaded", function () {
     function checkMenuItems() {
         const menuGrid = document.querySelector(".menu-grid");

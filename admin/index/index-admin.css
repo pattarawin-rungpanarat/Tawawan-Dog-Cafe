@@ -186,6 +186,7 @@ button:active {
     flex-direction: column;
     align-items: center;
     position: relative;
+    justify-content: center;
 }
 .menu-name {
     margin: 10px;
@@ -297,6 +298,20 @@ button:active {
     opacity: 0;
     cursor: pointer;
 }
+.bx-check{
+    font-size: 40px;
+}
+input[type="text"] {
+    margin: 10px;
+    height: 25px;
+    border-radius: 5px;
+}
+input[type="number"] {
+    margin: 10px;
+    height: 20px;
+    border-radius: 5px;
+}
+
 
 
 

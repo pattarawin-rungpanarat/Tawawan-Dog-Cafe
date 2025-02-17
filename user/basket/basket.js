@@ -10,7 +10,11 @@ function renderCart() {
     cartContainer.innerHTML = ""; 
 
     if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>ไม่มีสินค้าในตะกร้า</p>";
+        cartContainer.innerHTML = `
+            <div class="empty-message-Container">
+                <i class='bx bx-basket'></i>
+                <p class='empty-message' style=" font-size: 26px;">ไม่มีสินค้าในตะกร้า</p>
+            </div>`;
         totalPriceElement.innerHTML = "ราคารวม: 0 บาท";
         return;
     }

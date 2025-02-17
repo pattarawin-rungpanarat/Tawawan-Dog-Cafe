@@ -39,11 +39,15 @@
         <div class="menu-grid">
             <div class="menu-item-edit">
                 <label class="file-upload">
-                    <i class='bx bx-landscape'></i>
-                    <input type="file">
+                    <input type="file" id="menu-image" accept="image/*">
+                    <div class="preview-container">
+                        <i class="bx bx-landscape preview-image"></i>
+                    </div>
                 </label>
                 <div class="menu-details-edit">
-                    <div class="menu-name-edit">+ เพิ่มเมนู</div>
+                    <input type="text" id="menu-name" placeholder="ชื่อเมนู">
+                    <input type="number" id="menu-price" placeholder="ราคา">
+                    <button id="add-menu-button">เพิ่มเมนู</button>
                 </div>
             </div>
             <div class="menu-item">

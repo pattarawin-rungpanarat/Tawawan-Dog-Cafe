@@ -204,21 +204,6 @@ button:active {
     font-size: 16px;
     color: #888;
 }
-.bx-trash {
-    color: #D60000;
-    font-size: 20px;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-.bx-trash:hover {
-    transform: scale(1.5);
-}
-.bx-trash:active {
-    transform: scale(0.95);
-}
 .edit-button {
     background: #FFEFCD;
     padding: 10px;

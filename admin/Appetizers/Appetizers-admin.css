@@ -282,7 +282,30 @@ button:active {
     width: 100%;
     position: relative;
     color: #979797;
-}        
+}
+.preview-container {
+    background: #FFF3D9;
+    border-radius: 10%;
+    width: 180px;
+    height: 180px;
+    margin-left: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.preview-image {
+    font-size: 100px;
+    color: #979797;
+    transition: opacity 0.3s ease-in-out;
+}
+.preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    border-radius: 10%;
+}
 .file-upload {
     position: relative;
     display: inline-flex;
@@ -298,7 +321,19 @@ button:active {
     opacity: 0;
     cursor: pointer;
 }
-
+.bx-check{
+    font-size: 40px;
+}
+input[type="text"] {
+    margin: 10px;
+    height: 25px;
+    border-radius: 5px;
+}
+input[type="number"] {
+    margin: 10px;
+    height: 25px;
+    border-radius: 5px;
+}
 
 
 

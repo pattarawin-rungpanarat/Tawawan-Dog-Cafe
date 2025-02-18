@@ -40,7 +40,7 @@ function generateOtp() {
 }
 function sendOtp() {
     generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-    alert("รหัส OTP ของคุณคือ " + generatedOtp);
+    alert("รับรหัส OTP ของคุณคือ " + generatedOtp);
     let otpButton = document.getElementById("otp-button");
     otpButton.disabled = true;
     let seconds = 60;

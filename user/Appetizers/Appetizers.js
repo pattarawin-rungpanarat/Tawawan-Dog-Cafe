@@ -1,4 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const menuContainer = document.querySelector(".menu-grid");
+
+    function loadAppetizers() {
+        const appetizers = JSON.parse(localStorage.getItem('appetizers')) || [];
+        appetizers.forEach(menu => {
+            createMenuItem(menu.imageUrl, menu.name, menu.price);
+        });
+    }
+
+    function createMenuItem(imageUrl, menuName, menuPrice) {
+        const menuItem = document.createElement("div");
+        menuItem.classList.add("menu-item");
+        menuItem.innerHTML = `
+            <img src="${imageUrl}" class="menu-img">
+            <div class="menu-details">
+                <div class="menu-name">${menuName}</div>
+                <div class="menu-price">ราคา ${menuPrice} บาท</div>
+                <button class="cart-button"><i class='bx bx-basket'></i></button>
+            </div>
+        `;
+        menuContainer.appendChild(menuItem);
+    }
+
+    loadAppetizers();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     const cartButtons = document.querySelectorAll(".cart-button");
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.forEach(item => {

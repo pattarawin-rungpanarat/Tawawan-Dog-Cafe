@@ -54,7 +54,7 @@ function sendOtp() {
     let otpButton = document.getElementById("otp-button");
     otpButton.disabled = true;
     let seconds = 60;
-    otpButton.innerText = `รับ OTP อีกครั้ง (${seconds}s)`;
+    otpButton.innerText = `รับรหัส OTP อีกครั้ง (${seconds}s)`;
     let countdown = setInterval(() => {
         seconds--;
         otpButton.innerText = `รับ OTP อีกครั้ง (${seconds}s)`;

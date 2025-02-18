@@ -104,8 +104,8 @@ a:hover{
     gap: 10px;
 }
 button:hover {
-    transform: scale(1.05); 
-    transition: all 0.3s ease-in-out; 
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 button:active {
     transform: scale(0.95);
@@ -137,7 +137,7 @@ button:active {
     border: 1px solid #ccc;
     font-size: 16px;
     text-align: left;
-    
+
 }
 .login-container button {
     background: #f4e1c9;
@@ -177,13 +177,13 @@ button:active {
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
     text-align: center;
     font-size: 16px;
-    background: transparent; 
+    background: transparent;
     color: black;
-    outline: none; 
-    transition: border-color 0.3s ease, border-bottom-width 0.3s ease; 
+    outline: none;
+    transition: border-color 0.3s ease, border-bottom-width 0.3s ease;
 }
 .input-group input:focus {
-    border-bottom: 3px solid rgba(255, 255, 255, 1); 
+    border-bottom: 3px solid rgba(255, 255, 255, 1);
 }
 .input-group input:not(:placeholder-shown) {
     background: white;
@@ -191,7 +191,7 @@ button:active {
     border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 .input-group input::placeholder {
-    color: transparent; 
+    color: transparent;
 }
 .password-container {
     position: relative;
@@ -220,8 +220,8 @@ button:active {
 }
 .cancel-btn:hover{
     color: red;
-    transform: scale(1.05); 
-    transition: all 0.3s ease-in-out; 
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
 }
 
 

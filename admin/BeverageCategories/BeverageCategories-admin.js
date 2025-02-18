@@ -2,10 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let btn = document.getElementById("account-btn");
     let registeredAccount =localStorage.getItem("registeredaccountadmin");
 
-    if (registeredAccount.length > 5) {
+    if (registeredAccount.length > 4) {
         btn.innerText = registeredAccount.substring(0, 5) + "...";
-    } else {
-        btn.innerText = registeredAccount;
     }
 });
 
@@ -20,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 menuItem.remove();
 
-                let menus = JSON.parse(localStorage.getItem('menus')) || [];
-                menus = menus.filter(menu => menu.name !== menuName);
-                localStorage.setItem('menus', JSON.stringify(menus));
+                let beverageCategories = JSON.parse(localStorage.getItem('beverageCategories')) || [];
+                bbeverageCategories = beverageCategories.filter(menu => menu.name !== menuName);
+                localStorage.setItem('beverageCategories', JSON.stringify(beverageCategories));
             }
         });
     });
@@ -38,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const previewContainer = document.querySelector(".preview-container");
     const previewIcon = document.querySelector(".preview-image");
 
-    function loadMenus() {
-        const menus = JSON.parse(localStorage.getItem('menus')) || [];
-        menus.forEach(menu => {
+    function loadBeverageCategories() {
+        const beverageCategories = JSON.parse(localStorage.getItem('beverageCategories')) || [];
+        beverageCategories.forEach(menu => {
             createMenuItem(menu.imageUrl, menu.name, menu.price);
         });
     }
@@ -59,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         menuContainer.appendChild(menuItem);
     }
 
-    loadMenus();
+    loadBeverageCategories();
 
     menuImageInput.addEventListener("change", function (event) {
         if (event.target.files.length > 0) {
@@ -88,9 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         createMenuItem(imageUrl, menuName, menuPrice);
 
-        const menus = JSON.parse(localStorage.getItem('menus')) || [];
-        menus.push({ imageUrl, name: menuName, price: menuPrice });
-        localStorage.setItem('menus', JSON.stringify(menus));
+        const beverageCategories = JSON.parse(localStorage.getItem('beverageCategories')) || [];
+        beverageCategories.push({ imageUrl, name: menuName, price: menuPrice });
+        localStorage.setItem('beverageCategories', JSON.stringify(beverageCategories));
 
         menuImageInput.value = "";
         menuNameInput.value = "";
@@ -110,9 +108,9 @@ function deleteMenu() {
 
                 menuItem.remove();
 
-                let menus = JSON.parse(localStorage.getItem('menus')) || [];
-                menus = menus.filter(menu => menu.name !== menuName);
-                localStorage.setItem('menus', JSON.stringify(menus));
+                let beverageCategories = JSON.parse(localStorage.getItem('beverageCategories')) || [];
+                beverageCategories = beverageCategories.filter(menu => menu.name !== menuName);
+                localStorage.setItem('beverageCategories', JSON.stringify(beverageCategories));
             }
         });
     });

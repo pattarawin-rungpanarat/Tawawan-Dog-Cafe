@@ -128,12 +128,22 @@ function deleteMenu() {
 document.addEventListener("DOMContentLoaded", function () {
     const editButtons = document.querySelectorAll(".bx-edit-alt");
 
+    const appetizers = JSON.parse(localStorage.getItem('appetizers')) || [];
+    appetizers.forEach(item => {
+        const menuItem = document.querySelector(`[data-name="${item.name}"]`);
+        if (menuItem) {
+            const nameElement = menuItem.querySelector(".menu-name");
+            const priceElement = menuItem.querySelector(".menu-price");
+            nameElement.textContent = item.name;
+            priceElement.textContent = `ราคา ${item.price} บาท`;
+        }
+    });
+
     editButtons.forEach(button => {
         button.addEventListener("click", function () {
             let menuItem = this.closest(".menu-item");
             let nameElement = menuItem.querySelector(".menu-name");
             let priceElement = menuItem.querySelector(".menu-price");
-            
 
             if (!menuItem.dataset.editing) {
                 menuItem.dataset.editing = "true";
@@ -158,11 +168,25 @@ document.addEventListener("DOMContentLoaded", function () {
                     priceInput.replaceWith(priceElement);
 
                     this.classList.replace("bx-check", "bx-edit-alt");
+
+                    const editIcon = menuItem.querySelector(".edit-button i");
+                    editIcon.classList.replace("bx-check", "bx-edit-alt");
+
                     delete menuItem.dataset.editing;
+
+                    let updatedAppetizers = JSON.parse(localStorage.getItem('appetizers')) || [];
+                    updatedAppetizers = updatedAppetizers.filter(menu => menu.name !== nameElement.textContent.trim());
+
+                    updatedAppetizers.push({
+                        imageUrl: menuItem.querySelector("img").src,
+                        name: nameElement.textContent.trim(),
+                        price: priceInput.value.trim()
+                    });
+                    localStorage.setItem('appetizers', JSON.stringify(updatedAppetizers));
 
                     this.removeEventListener("click", saveEdit);
                 }, { once: true });
             }
         });
     });
-});;
+});

@@ -61,40 +61,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuImageInput.addEventListener("change", function (event) {
         if (event.target.files.length > 0) {
-            const imageUrl = URL.createObjectURL(event.target.files[0]);
-
-            previewIcon.style.display = "none";
-            let imgElement = previewContainer.querySelector("img");
-            if (!imgElement) {
-                imgElement = document.createElement("img");
-                previewContainer.appendChild(imgElement);
-            }
-            imgElement.src = imageUrl;
-            imgElement.style.display = "block";
+            const file = event.target.files[0];
+            const reader = new FileReader();
+    
+            reader.onload = function () {
+                const imageUrl = reader.result;
+                previewIcon.style.display = "none";
+    
+                let imgElement = previewContainer.querySelector("img");
+                if (!imgElement) {
+                    imgElement = document.createElement("img");
+                    previewContainer.appendChild(imgElement);
+                }
+                imgElement.src = imageUrl;
+                imgElement.style.display = "block";
+            };
+    
+            reader.readAsDataURL(file);
         }
     });
 
     addButton.addEventListener("click", function () {
-        const imgElement = previewContainer.querySelector("img");
-        const imageUrl = imgElement ? imgElement.src : "./picture/default.jpg";
-        const menuName = menuNameInput.value.trim();
-        const menuPrice = menuPriceInput.value.trim();
+    const imgElement = previewContainer.querySelector("img");
+    const imageUrl = imgElement ? imgElement.src : "./picture/default.jpg";
+    const menuName = menuNameInput.value.trim();
+    const menuPrice = menuPriceInput.value.trim();
 
-        if (menuName === "" || menuPrice === "" || imageUrl === "./picture/default.jpg") {
-            alert("กรุณากรอกชื่อเมนูและราคาให้ครบถ้วน!");
-            return;
-        }
-        createMenuItem(imageUrl, menuName, menuPrice);
+    if (menuName === "" || menuPrice === "" || imageUrl === "./picture/default.jpg") {
+        alert("กรุณากรอกชื่อเมนูและราคาให้ครบถ้วน!");
+        return;
+    }
 
-        const appetizers = JSON.parse(localStorage.getItem('appetizers')) || [];
-        appetizers.push({ imageUrl, name: menuName, price: menuPrice });
-        localStorage.setItem('appetizers', JSON.stringify(appetizers));
+    createMenuItem(imageUrl, menuName, menuPrice);
 
-        menuImageInput.value = "";
-        menuNameInput.value = "";
-        menuPriceInput.value = "";
-        if (imgElement) imgElement.remove();
-        previewIcon.style.display = "block";
+    const appetizers = JSON.parse(localStorage.getItem('appetizers')) || [];
+    appetizers.push({ imageUrl, name: menuName, price: menuPrice });
+    localStorage.setItem('appetizers', JSON.stringify(appetizers));
+
+    menuImageInput.value = "";
+    menuNameInput.value = "";
+    menuPriceInput.value = "";
+    if (imgElement) imgElement.remove();
+    previewIcon.style.display = "block";
     });
 });
 

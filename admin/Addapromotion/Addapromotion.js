@@ -1,11 +1,51 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
     let btn = document.getElementById("account-btn");
-    let registeredAccount =localStorage.getItem("registeredaccountadmin");
+    let text = btn.innerText;
 
-    if (registeredAccount.length > 4) {
-        btn.innerText = registeredAccount.substring(0,8) + "...";
+    if (text.length > 2) {
+        btn.innerText = text.substring(0, 3) + "...";
     }
 });
+let registeredAccount =localStorage.getItem("registeredaccountadmin");
+document.getElementById("account-btn").textContent = registeredAccount;
+
+
+document.getElementById("menu-image").addEventListener("change", function(event) {
+    const file = event.target.files[0]; 
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const imageData = e.target.result;
+            localStorage.setItem("promotionImage", imageData);
+
+            const previewContainer = document.getElementById("image-preview");
+            const previewIcon = document.getElementById("preview-icon");
+
+            if (previewIcon) {
+                previewIcon.style.display = "none"; 
+            }
+
+            let imgElement = previewContainer.querySelector("img");
+
+            if (!imgElement) {
+                imgElement = document.createElement("img");
+                imgElement.style.width = "100%";
+                imgElement.style.height = "100%";
+                imgElement.style.objectFit = "cover";
+                imgElement.style.borderRadius = "10%";
+                previewContainer.appendChild(imgElement);
+            }
+
+            imgElement.src = imageData; 
+            imgElement.style.display = "block"; 
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+
+
+ 
 document.addEventListener("DOMContentLoaded", function () {
     const conditionSelect = document.querySelector(".form-group select");
     const additionalFieldsContainer = document.querySelector(".un");
@@ -49,6 +89,5 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
         }
     }
-
     conditionSelect.addEventListener("change", updateFields);
 });

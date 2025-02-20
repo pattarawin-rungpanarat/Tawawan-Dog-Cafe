@@ -17,34 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateFields() {
         const selectedValue = conditionSelect.value;
         additionalFieldsContainer.innerHTML = "";
-        if (selectedValue === "แถม") {
+
+        if (selectedValue === "แถม" || selectedValue === "ส่วนลด") {
             additionalFieldsContainer.innerHTML = `
                 <div class="form-group">
-                    <label>เงื่อนไขของแถม :</label>
-                    <input type="text" class="input" placeholder="เงื่อนไขของแถม">
+                    <label>จำกัดจำนวนผู้ใช้โปรโมชั่น:</label>
+                    <input type="number" class="input" placeholder="ระบุจำนวน">
                 </div>
                 <div class="form-group">
-                    <label>แถม :</label>
-                    <input type="text" class="input" placeholder="แถม">
-                </div>
-                <div class="form-group">
-                    <label>กี่ชิ้น :</label>
-                    <input type="number" class="input" placeholder="จำนวนที่แถม">
-                </div>
-                <div class="button-group">
-                    <a href="./Addapromotion.html"><button class="cancel-button">ยกเลิก</button></a>
-                    <button class="confirm-button">ยืนยัน</button>
-                </div>
-            `;
-        } else if (selectedValue === "ส่วนลด") {
-            additionalFieldsContainer.innerHTML = `
-                <div class="form-group">
-                    <label>เงื่อนไขส่วนลด :</label>
-                    <input type="text" class="input" placeholder="เงื่อนไขส่วนลด">
-                </div>
-                <div class="form-group">
-                    <label>จะได้ส่วนลด :</label>
-                    <input type="number" class="input" placeholder="จำนวนส่วนลด">
+                    <label>เงื่อนไข${selectedValue === "แถม" ? "ของแถม" : "ส่วนลด"}:</label>
+                    <input type="text" class="input" placeholder="เงื่อนไข${selectedValue === "แถม" ? "ของแถม" : "ส่วนลด"}">
                 </div>
                 <div class="button-group">
                     <a href="./Addapromotion.html"><button class="cancel-button">ยกเลิก</button></a>
@@ -53,7 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
         }
     }
-    conditionSelect.addEventListener("change", updateFields);
+
+    if (conditionSelect) {
+        conditionSelect.addEventListener("change", updateFields);
+    }
 });
 
 
@@ -108,18 +93,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const type = document.querySelector(".form-group select")?.value || "";
         const condition = document.querySelector(".input-condition").value;
         const startDate = document.querySelector(".input-start").value;
-        const endDate = document.querySelectorAll(".input-start")[1].value; 
-        const limit = document.querySelector(".un input[type='number']").value;
+        const endDate = document.querySelectorAll(".input-start")[1].value;
+        const limit = document.querySelector(".un input[type='number']")?.value;
 
         let extraCondition = "";
-        let discount = "";
 
-        if (condition === "แถม") {
-            extraCondition = document.querySelector(".un input[placeholder='เงื่อนไขของแถม']").value;
-            discount = document.querySelector(".un input[placeholder='จำนวนที่แถม']").value + " ชิ้น";
-        } else if (condition === "ส่วนลด") {
-            extraCondition = document.querySelector(".un input[placeholder='เงื่อนไขส่วนลด']").value;
-            discount = document.querySelector(".un input[placeholder='จำนวนส่วนลด']").value + " บาท";
+        if (type === "แถม") {
+            extraCondition = document.querySelector(".un input[placeholder='เงื่อนไขของแถม']")?.value || "";
+        } else if (type === "ส่วนลด") {
+            extraCondition = document.querySelector(".un input[placeholder='เงื่อนไขส่วนลด']")?.value || "";
         }
 
         const promoImage = localStorage.getItem("promotionImage") || "./picture/icon.png";
@@ -134,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
             type: type,
             name: promoName,
             condition: extraCondition,
-            discount: discount,
             image: promoImage,
             startDate: startDate,
             endDate: endDate

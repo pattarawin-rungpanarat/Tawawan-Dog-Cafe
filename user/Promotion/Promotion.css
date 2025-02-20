@@ -171,6 +171,7 @@ button:active {
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
     border: 1.5px solid #000000; 
+    text-align: left;
 }
 .menu-item img {
     background: #FFF3D9;
@@ -211,10 +212,11 @@ button:active {
 .pomo-expired {
     text-align: right;
     margin: 10px;
-    font-size: 18px;
+    font-size: 14px;
     color: #D60000;
     bottom: 0;
 }
+
 
 
 

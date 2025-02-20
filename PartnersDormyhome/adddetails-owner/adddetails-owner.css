@@ -90,12 +90,11 @@ button:active {
     transform: scale(0.95);
     transition: all 0.1s ease-in-out;
 }
-
-
+/*boby*/
 .main{
     text-align: center;
     width: 50%;
-    margin-top: 13%;
+    margin-top: 22%;
 }
 .main-title{
     font-size: 36px;
@@ -105,15 +104,22 @@ button:active {
     font-size: 14px;
     margin-bottom: 5%;
 }
-.main-grid{
+.main-g{
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
+.main-grid{
+    display: grid;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
 .main-name{
-    font-size: 26px;
-    font-weight: 800;
+    font-size: 28px;
+    font-weight: 700;
 }
 .preview-container {
     background: #D9D9D9;
@@ -135,8 +141,24 @@ button:active {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
     border-radius: 10%;
+    display: none;
+}
+.preview-container .preview-image {
+    font-size: 20px;
+    color: #000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.preview-container.has-image .preview-image {
+    display: none;
+}
+
+.preview-container.has-image img {
+    display: block;
+}
+.image-upload{
+    margin-top: 10px;
 }
 .file-upload {
     position: relative;
@@ -169,11 +191,53 @@ button:active {
 input[type="number"] {
     padding-left: 30px;
     border: none;
+    height: 40px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+#priceInput{
+    width: 25%;
+    border-radius: 10px;
 }
 #descriptionInput,#securityInput,#rulesInput{
     width: 50%;
-    height: 40px;
+    height: 25px;
     border: none;
     border-radius: 10px;
     padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
 }
+.st-rd{
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 0px;
+    width: 30px;
+    accent-color: green;
+}
+.btn{
+    margin-top: 40px;
+}
+.btn button{
+    background-color: #D9D9D9;
+    color: rgb(255, 255, 255);
+    border-radius: 100px;
+    border-width: 0.25px;
+    width: 250px;
+    height: 65px;
+    font-size: 20px;
+    margin: 20px 30px;
+    cursor: not-allowed;
+    transition: 0.3s;
+}
+.button-add button.active {
+    background-color: #20B2AA;
+    cursor: pointer;
+    color: #000;
+}
+.next-bnt button.active {
+    background-color: #8D6E63;
+    cursor: pointer;
+    color: #ffffff;
+}
+

@@ -168,3 +168,15 @@ button:active {
     font-size: 22px;
     margin-right: 20px;
 }
+input[type="text"]{
+    border: none;
+    font-size: 18px;
+    margin-top: 15px;
+    width: 30%;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+}

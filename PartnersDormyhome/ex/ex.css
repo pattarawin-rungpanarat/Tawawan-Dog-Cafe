@@ -3,12 +3,11 @@ body {
     margin: 0;
     padding: 0;
     background: url(../images/พื้นหลังหน้าinbex.jpg);
-
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     flex-direction: column;
@@ -96,7 +95,7 @@ button:active {
     backdrop-filter: blur(5px);
 }
 .main-top{
-    margin-top: 15%;
+    margin-top: 10%;
     width: 100%;
     display: flex;
 }
@@ -146,6 +145,7 @@ button:active {
 .map{
     background: rgb(255, 255, 255 ,0.8);
     width: 600px;
+    height: 35%;
 }
 .review{
     margin-left: 40px;
@@ -170,4 +170,10 @@ button:active {
     text-align: left;
     background: rgb(255, 255, 255 ,0.8);
     width: 537px;
+}
+.main-price{
+    margin-left: 50px;
+}
+.bx-checkbox-checked{
+    color: green;
 }

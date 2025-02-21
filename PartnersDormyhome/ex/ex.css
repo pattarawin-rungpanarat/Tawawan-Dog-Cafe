@@ -131,9 +131,11 @@ button:active {
     display: flex;
 }
 .main-unleft{
-    width: 70%;
+    width: 60%;
     display: flex;
     justify-content: flex-end;
+    margin-top: 20px;
+    margin-right: 100px;
 }
 .main-unright{
     width: 25%;
@@ -143,7 +145,7 @@ button:active {
 }
 .map{
     background: rgb(255, 255, 255 ,0.8);
-    width: 437px;
+    width: 600px;
 }
 .review{
     margin-left: 40px;
@@ -163,4 +165,9 @@ button:active {
     font-size: 14px;
     margin-bottom: 5%;
     margin-left: 15%;
+}
+.main-itemunright{
+    text-align: left;
+    background: rgb(255, 255, 255 ,0.8);
+    width: 537px;
 }

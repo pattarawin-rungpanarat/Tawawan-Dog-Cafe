@@ -43,7 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setupInputEvents(timeInputs);
 });
+document.getElementById("doom").addEventListener("input", checkSelection);
 
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        let doomInput = document.getElementById("doom").value.trim();
+
+        localStorage.setItem("doom", doomInput);
+
+});
 function validatePhone() {
     let phoneInput = document.getElementById("phone");
     let errorMessage = document.getElementById("phone-error");
@@ -63,9 +70,10 @@ function checkSelection() {
     let notificationInput = document.getElementById("notification").value.trim();
     let bookingInput = document.getElementById("booking").value.trim();
     let contractInput = document.getElementById("contract").value.trim();
+    let doomInput = document.getElementById("doom").value.trim();
     let nextBtn = document.getElementById("nextBtn");
 
-    if (phoneInput !== "" && nearbyPlaceInput !== "" && notificationInput !== "" && bookingInput !== "" && contractInput !== "") {
+    if (phoneInput !== "" && nearbyPlaceInput !== "" && notificationInput !== "" && bookingInput !== "" && contractInput !== "" && doomInput !== "") {
         nextBtn.classList.add("active");
         nextBtn.removeAttribute("disabled");
     } else {

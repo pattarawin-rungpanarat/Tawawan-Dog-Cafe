@@ -10,5 +10,11 @@ function loadImagesOnOtherPage() {
         }
     }
 }
-
 window.onload = loadImagesOnOtherPage;
+
+let doom = localStorage.getItem("doom");
+    if (doom) {
+        document.getElementById("doom-display").innerText = "ชื่อหอพัก: " + doom;
+    } else {
+            document.getElementById("doom-display").innerText = "ไม่พบข้อมูลชื่อหอพัก";
+}

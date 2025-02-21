@@ -83,14 +83,9 @@ function completeOrder() {
 
     alert("ทำรายการเสร็จสิ้น และได้ส่งการแจ้งเตือนให้ลูกค้าแล้ว");
 }
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     let btn = document.getElementById("account-btn");
-    let registeredAccount =localStorage.getItem("registeredaccountadmin");
+    let registeredAccount = localStorage.getItem("registeredaccountadmin");
 
     if (registeredAccount.length > 5) {
         btn.innerText = registeredAccount.substring(0, 5) + "...";

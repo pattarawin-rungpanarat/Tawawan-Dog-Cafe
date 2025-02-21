@@ -74,7 +74,26 @@ function loadSavedImages() {
         }
     }
 }
+document.addEventListener('DOMContentLoaded', function () {
+    const roomTypeContainer = document.getElementById('roomTypeContainer'); // เลือก container ที่ถูกต้อง
 
+    let roomTypes = JSON.parse(localStorage.getItem('roomTypes')) || [];
+
+    roomTypes.forEach(roomType => {
+        const radioButton = document.createElement('input');
+        radioButton.type = 'radio';
+        radioButton.className = 'st-rd';
+        radioButton.value = roomType;
+        radioButton.name = 'roomType';
+
+        const label = document.createElement('label');
+        label.textContent = roomType;
+
+        roomTypeContainer.appendChild(radioButton);
+        roomTypeContainer.appendChild(label);
+        roomTypeContainer.appendChild(document.createElement('br'));
+    });
+});
 function checkSelection() {
     let allFilled = true;
 

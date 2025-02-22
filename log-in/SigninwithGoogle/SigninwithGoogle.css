@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
+    flex-direction: column;
 }
 .pict {
     display: flex;
@@ -103,7 +104,7 @@ body {
 .right .account:hover {
     background-color: #e8e8e8;
 }
-.right .account .avatar {
+.avatar {
     width: 30px;
     height: 30px;
     display: flex;
@@ -112,7 +113,7 @@ body {
     border-radius: 50%;
     font-weight: bold;
     color: #ffffff;
-    font-size: 14px;
+    background-color: #F12A2A;
 }
 .right .account .text {
     display: flex;
@@ -144,12 +145,6 @@ body {
     font-size: 25px;
     color: #F12A2A;
 }
-.right .red {
-    background-color: #ff0000;
-}
-.right .Gold {
-    background-color: #FFD700;
-}
 .right .Magenta {
     background-color: #FF00FF;
 }
@@ -160,4 +155,37 @@ body {
     text-align: start;
     margin-top: 5px;
     margin-bottom: 10px;
+}
+.un{
+    width: 67%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.un button{
+    display: flex;
+    width: 160px;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 10px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+.bxs-down-arrow{
+    margin-left: 10px;
+}
+.DeP0Wd{
+    display: flex;
+}
+.un button:hover{
+    background: #f3f3f3;
+}
+.DeP0Wd button{
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
 }

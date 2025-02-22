@@ -5,6 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: Arial, sans-serif;
+    flex-direction: column;
 }
 .container {
     background: #fff;
@@ -137,4 +138,37 @@ body {
     width: 47%;
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.327);
+}
+.un{
+    width: 67%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.un button{
+    display: flex;
+    width: 160px;
+    height: 48px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    border-radius: 10px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+.bxs-down-arrow{
+    margin-left: 10px;
+}
+.DeP0Wd{
+    display: flex;
+}
+.un button:hover{
+    background: #f3f3f3;
+}
+.DeP0Wd button{
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
 }

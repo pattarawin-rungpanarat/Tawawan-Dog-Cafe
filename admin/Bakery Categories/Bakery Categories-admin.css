@@ -325,11 +325,10 @@ button:active {
     font-size: 40px;
 }
 input[type="text"] {
-    margin: 10px;
+    margin: 10px 10px 5px 10px;
     height: 30px;
     border-radius: 5px;
     width: 200px;
-    margin-bottom: 5px;
 }
 input[type="number"] {
     margin: 10px;

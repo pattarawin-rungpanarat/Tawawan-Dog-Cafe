@@ -143,6 +143,10 @@ button:active {
     border-radius: 5px;
     margin-top: 20px;
 }
+.bx-left-arrow-alt{
+    font-size: 25px;
+    margin-left: 10px;
+}
 .main-top{
     margin-top: 2%;
     width: 100%;

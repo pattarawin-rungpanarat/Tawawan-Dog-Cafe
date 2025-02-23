@@ -140,6 +140,7 @@ button:active {
     font-size: 36px;
     font-weight: bold;
     color: #ffffff;
+    display: flex;
 }
 .main-top{
     margin-top: 2%;

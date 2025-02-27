@@ -125,8 +125,8 @@ body {
     font-weight: 550;
 }
 .right .account .use {
-    font-size: 10px;
-    font-weight: 550;
+    font-size: 1rem;
+    font-weight: 500;
 }
 .right .account .email {
     font-size: 15px;

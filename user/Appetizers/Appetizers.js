@@ -115,3 +115,46 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 let registeredaccount = localStorage.getItem("registeredaccount");
 document.getElementById("account-btn").textContent = registeredaccount;
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector("input[type='search']");
+    const searchButton = document.querySelector("button");
+    const menuItems = document.querySelectorAll(".menu-item");
+    const menuTitle = document.getElementById("menu-title");
+
+    function filterMenu() {
+        const searchQuery = searchInput.value.toLowerCase();
+        let found = false;
+        menuItems.forEach(function (menuItem) {
+            const menuName = menuItem.querySelector(".menu-name").innerText.toLowerCase();
+            if (menuName.includes(searchQuery)) {
+                menuItem.style.display = "flex";
+                found = true;
+            } else {
+                menuItem.style.display = "none";
+            }
+        });
+
+        if (found) {
+            menuTitle.innerText = "เมนูการค้นหา";
+        } else {
+            menuTitle.innerText = "ไม่มีเมนูที่ตรงกับการค้นหา";
+        }
+    }
+
+    searchButton.addEventListener("click", function () {
+        filterMenu();
+    });
+
+    searchInput.addEventListener("input", function () {
+        if (searchInput.value === "") {
+            menuItems.forEach(function (menuItem) {
+                menuItem.style.display = "flex";
+            });
+            menuTitle.innerText = "เมนูแนะนำ";
+        } else {
+            filterMenu();
+        }
+    });
+});

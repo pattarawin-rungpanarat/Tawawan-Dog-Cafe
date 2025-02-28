@@ -3,64 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เลือกธนาคาร</title>
-    <script src="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
-    <style>
-        .bank-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .dropdown {
-            display: none;
-            flex-direction: row;
-            gap: 10px;
-            margin-left: 10px;
-        }
-        .dropdown button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 24px;
-        }
-        .th-btn {
-            font-size: 24px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <title>ค้นหาเมนู</title>
 </head>
 <body>
+    <input type="search" placeholder="ค้นหาเมนู">
+    <button>🔍︎</button>
+    <button id="clear-btn">ล้าง</button>
 
-<div class="bank-container">
-    <span>ชื่อธนาคาร:</span>
-    <button class="th-btn" id="main-btn"><i class='bx bx-caret-right'></i></button>
-    
-    <div class="dropdown" id="bank-list">
-        <button class="bank-option" data-icon="bxl-facebook"><i class='bx bxl-facebook'></i></button> <!-- กรุงไทย -->
-        <button class="bank-option" data-icon="bxl-twitter"><i class='bx bxl-twitter'></i></button> <!-- SCB -->
-        <button class="bank-option" data-icon="bxl-whatsapp"><i class='bx bxl-whatsapp'></i></button> <!-- KBANK -->
-    </div>
-</div>
+    <ul>
+        <li class="menu-item"><span class="menu-name">ข้าวต้มหมู</span></li>
+        <li class="menu-item"><span class="menu-name">ข้าวผัด</span></li>
+        <li class="menu-item"><span class="menu-name">แกงเขียวหวาน</span></li>
+        <li class="menu-item"><span class="menu-name">สเต็กหมู</span></li>
+    </ul>
 
-<script>
-    const mainBtn = document.getElementById("main-btn");
-    const bankList = document.getElementById("bank-list");
-    const bankOptions = document.querySelectorAll(".bank-option");
-    mainBtn.addEventListener("click", () => {
-        bankList.style.display = bankList.style.display === "flex" ? "none" : "flex";
-    });
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.querySelector("input[type='search']");
+            const searchButton = document.querySelector("button");
+            const clearButton = document.getElementById("clear-btn");
+            const menuItems = document.querySelectorAll(".menu-item");
 
-    bankOptions.forEach(button => {
-        button.addEventListener("click", () => {
-            const selectedIcon = button.getAttribute("data-icon");
-            mainBtn.innerHTML = `<i class='bx ${selectedIcon}'></i>`;
-            bankList.style.display = "none";
+            searchButton.addEventListener("click", function () {
+                const searchQuery = searchInput.value.toLowerCase();
+                menuItems.forEach(function (menuItem) {
+                    const menuName = menuItem.querySelector(".menu-name").innerText.toLowerCase();
+                    if (menuName.includes(searchQuery)) {
+                        menuItem.style.display = "block";  // Show matching menu
+                    } else {
+                        menuItem.style.display = "none";   // Hide non-matching menu
+                    }
+                });
+            });
+
+            // เพิ่มฟังก์ชันการล้างคำค้นหา
+            clearButton.addEventListener("click", function () {
+                searchInput.value = '';  // ล้างข้อความในช่องค้นหา
+                menuItems.forEach(function (menuItem) {
+                    menuItem.style.display = "block";  // แสดงเมนูทั้งหมด
+                });
+            });
         });
-    });
-</script>
-
+    </script>
 </body>
 </html>

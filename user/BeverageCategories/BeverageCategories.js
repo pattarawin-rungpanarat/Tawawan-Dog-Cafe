@@ -115,3 +115,74 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 let registeredaccount = localStorage.getItem("registeredaccount");
 document.getElementById("account-btn").textContent = registeredaccount;
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuItems = [];
+    const menuItemsElements = document.querySelectorAll(".menu-item");
+
+    menuItemsElements.forEach(item => {
+        const itemName = item.querySelector(".menu-name").innerText;
+        const priceText = item.querySelector(".menu-price").textContent;
+        const price = parseInt(priceText.replace(/\D/g, ""));
+        const image = item.querySelector("img").src;
+
+        menuItems.push({
+            name: itemName,
+            price: price,
+            image: image
+        });
+    });
+    localStorage.setItem("BeverageCategoriesMenuItems", JSON.stringify(menuItems));
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector("input[type='search']");
+    const searchButton = document.querySelector("button");
+    const menuContainer = document.querySelector(".menu-grid");
+    const menuTitle = document.getElementById("menu-title");
+
+    const bakeryMenuItems = JSON.parse(localStorage.getItem("bakeryMenuItems")) || [];
+    const appetizerMenuItems = JSON.parse(localStorage.getItem("appetizerMenuItems")) || [];
+    const beverageMenuItems = JSON.parse(localStorage.getItem("BeverageCategoriesMenuItems")) || [];
+    const allMenuItems = [...bakeryMenuItems, ...appetizerMenuItems, ...beverageMenuItems];
+
+    function filterMenu() {
+        const searchQuery = searchInput.value.toLowerCase();
+        const filteredItems = allMenuItems.filter(item =>
+            item.name.toLowerCase().includes(searchQuery)
+        );
+
+        menuContainer.innerHTML = '';
+
+        if (filteredItems.length > 0) {
+            filteredItems.forEach(item => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.classList.add('menu-item');
+                menuItemElement.innerHTML = `
+                    <img src="${item.image}">
+                    <div class="menu-details">
+                        <div class="menu-name">${item.name}</div>
+                        <div class="menu-price">ราคา ${item.price} บาท</div>
+                        <button class="cart-button"><i class='bx bx-basket'></i></button>
+                    </div>
+                `;
+                menuContainer.appendChild(menuItemElement);
+            });
+            menuTitle.innerText = "เมนูการค้นหา";
+        } else {
+            menuTitle.innerText = "ไม่มีเมนูที่ตรงกับการค้นหา";
+        }
+    }
+
+    searchButton.addEventListener("click", filterMenu);
+    searchInput.addEventListener("input", function () {
+        if (searchInput.value === "") {
+            location.reload();
+        } else {
+            filterMenu();
+        }
+    });
+});

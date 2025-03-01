@@ -95,39 +95,46 @@ document.getElementById("account-btn").textContent = registeredaccount;
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.querySelector("input[type='search']");
     const searchButton = document.querySelector("button");
-    const menuItems = document.querySelectorAll(".menu-item");
+    const menuContainer = document.querySelector(".menu-grid");
     const menuTitle = document.getElementById("menu-title");
+
+    const bakeryMenuItems = JSON.parse(localStorage.getItem("bakeryMenuItems")) || [];
+    const appetizerMenuItems = JSON.parse(localStorage.getItem("appetizerMenuItems")) || [];
+    const beverageMenuItems = JSON.parse(localStorage.getItem("BeverageCategoriesMenuItems")) || [];
+    const allMenuItems = [...bakeryMenuItems, ...appetizerMenuItems, ...beverageMenuItems];
 
     function filterMenu() {
         const searchQuery = searchInput.value.toLowerCase();
-        let found = false;
-        menuItems.forEach(function (menuItem) {
-            const menuName = menuItem.querySelector(".menu-name").innerText.toLowerCase();
-            if (menuName.includes(searchQuery)) {
-                menuItem.style.display = "flex";
-                found = true;
-            } else {
-                menuItem.style.display = "none";
-            }
-        });
+        const filteredItems = allMenuItems.filter(item =>
+            item.name.toLowerCase().includes(searchQuery)
+        );
 
-        if (found) {
+        menuContainer.innerHTML = '';
+
+        if (filteredItems.length > 0) {
+            filteredItems.forEach(item => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.classList.add('menu-item');
+                menuItemElement.innerHTML = `
+                    <img src="${item.image}">
+                    <div class="menu-details">
+                        <div class="menu-name">${item.name}</div>
+                        <div class="menu-price">ราคา ${item.price} บาท</div>
+                        <button class="cart-button"><i class='bx bx-basket'></i></button>
+                    </div>
+                `;
+                menuContainer.appendChild(menuItemElement);
+            });
             menuTitle.innerText = "เมนูการค้นหา";
         } else {
             menuTitle.innerText = "ไม่มีเมนูที่ตรงกับการค้นหา";
         }
     }
 
-    searchButton.addEventListener("click", function () {
-        filterMenu();
-    });
-
+    searchButton.addEventListener("click", filterMenu);
     searchInput.addEventListener("input", function () {
         if (searchInput.value === "") {
-            menuItems.forEach(function (menuItem) {
-                menuItem.style.display = "flex";
-            });
-            menuTitle.innerText = "เมนูแนะนำ";
+            location.reload();
         } else {
             filterMenu();
         }

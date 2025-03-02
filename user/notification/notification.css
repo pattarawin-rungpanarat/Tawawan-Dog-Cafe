@@ -225,6 +225,7 @@ button:active {
     justify-content: flex-end;
     align-items: center;
     gap: 33px;
+    cursor: pointer; 
 }
 .menu-name {
     margin: 10px;

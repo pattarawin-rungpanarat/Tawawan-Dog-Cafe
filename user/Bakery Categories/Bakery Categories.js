@@ -25,41 +25,117 @@ document.addEventListener("DOMContentLoaded", function () {
     loadBakeryCategories();
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    let btn = document.getElementById("account-btn");
+    let text = btn.innerText;
+
+    if (text.length > 2) {
+        btn.innerText = text.substring(0, 3) + "...";
+    }
+});
+let registeredaccount = localStorage.getItem("registeredaccount");
+document.getElementById("account-btn").textContent = registeredaccount;
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    const cartButtons = document.querySelectorAll(".cart-button");
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.forEach(item => {
-        const menuItem = [...document.querySelectorAll(".menu-item")].find(menu => 
-            menu.querySelector(".menu-name").innerText === item.name
-        );
-        if (menuItem) {
-            updateCartButton(menuItem, item.quantity, item.price);
-        }
-    });
-    cartButtons.forEach(button => {
-        button.addEventListener("click", function () {
-            const menuItem = this.closest(".menu-item");
-            const itemName = menuItem.querySelector(".menu-name").innerText;
-            const priceText = menuItem.querySelector(".menu-price").textContent;
-            const pricePerUnit = parseInt(priceText.replace(/\D/g, ""));
-            const itemImage = menuItem.querySelector("img").src;
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            let existingItem = cart.find(item => item.name === itemName);
-            let quantity = 1;
-            if (existingItem) {
-                quantity = existingItem.quantity + 1;
-            } else {
-                cart.push({
-                    name: itemName,
-                    price: pricePerUnit,
-                    image: itemImage,
-                    quantity: 1
-                });
-            }
-            localStorage.setItem("cart", JSON.stringify(cart));
-            updateCartButton(menuItem, quantity, pricePerUnit);
+    const menuItems = [];
+    const menuItemsElements = document.querySelectorAll(".menu-item");
+
+    menuItemsElements.forEach(item => {
+        const itemName = item.querySelector(".menu-name").innerText;
+        const priceText = item.querySelector(".menu-price").textContent;
+        const price = parseInt(priceText.replace(/\D/g, ""));
+        const image = item.querySelector("img").src;
+
+        menuItems.push({
+            name: itemName,
+            price: price,
+            image: image
         });
     });
+
+    localStorage.setItem("bakeryMenuItems", JSON.stringify(menuItems));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector("input[type='search']");
+    const searchButton = document.querySelector("button");
+    const menuContainer = document.querySelector(".menu-grid");
+    const menuTitle = document.getElementById("menu-title");
+
+    const bakeryMenuItems = JSON.parse(localStorage.getItem("bakeryMenuItems")) || [];
+    const appetizerMenuItems = JSON.parse(localStorage.getItem("appetizerMenuItems")) || [];
+    const beverageMenuItems = JSON.parse(localStorage.getItem("BeverageCategoriesMenuItems")) || [];
+    const allMenuItems = [...bakeryMenuItems, ...appetizerMenuItems, ...beverageMenuItems];
+
+    function filterMenu() {
+        const searchQuery = searchInput.value.toLowerCase();
+        const filteredItems = allMenuItems.filter(item =>
+            item.name.toLowerCase().includes(searchQuery)
+        );
+
+        menuContainer.innerHTML = '';
+
+        if (filteredItems.length > 0) {
+            filteredItems.forEach(item => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.classList.add('menu-item');
+                menuItemElement.innerHTML = `
+                    <img src="${item.image}">
+                    <div class="menu-details">
+                        <div class="menu-name">${item.name}</div>
+                        <div class="menu-price">ราคา ${item.price} บาท</div>
+                        <button class="cart-button"><i class='bx bx-basket'></i></button>
+                    </div>
+                `;
+                menuContainer.appendChild(menuItemElement);
+            });
+            menuTitle.innerText = "เมนูการค้นหา";
+        } else {
+            menuTitle.innerText = "ไม่มีเมนูที่ตรงกับการค้นหา";
+        }
+
+        initializeCart();
+    }
+
+    function initializeCart() {
+        const cartButtons = document.querySelectorAll(".cart-button");
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.forEach(item => {
+            const menuItem = [...document.querySelectorAll(".menu-item")].find(menu => 
+                menu.querySelector(".menu-name").innerText === item.name
+            );
+            if (menuItem) {
+                updateCartButton(menuItem, item.quantity, item.price);
+            }
+        });
+        cartButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const menuItem = this.closest(".menu-item");
+                const itemName = menuItem.querySelector(".menu-name").innerText;
+                const priceText = menuItem.querySelector(".menu-price").textContent;
+                const pricePerUnit = parseInt(priceText.replace(/\D/g, ""));
+                const itemImage = menuItem.querySelector("img").src;
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                let existingItem = cart.find(item => item.name === itemName);
+                let quantity = 1;
+                if (existingItem) {
+                    quantity = existingItem.quantity + 1;
+                } else {
+                    cart.push({
+                        name: itemName,
+                        price: pricePerUnit,
+                        image: itemImage,
+                        quantity: 1
+                    });
+                }
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartButton(menuItem, quantity, pricePerUnit);
+            });
+        });
+    }
+
     function updateCartButton(menuItem, quantity, pricePerUnit) {
         const cartButton = menuItem.querySelector(".cart-button");
         const quantityContainer = document.createElement("div");
@@ -104,80 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
-});
-document.addEventListener("DOMContentLoaded", function() {
-    let btn = document.getElementById("account-btn");
-    let text = btn.innerText;
-
-    if (text.length > 2) {
-        btn.innerText = text.substring(0, 3) + "...";
-    }
-});
-let registeredaccount = localStorage.getItem("registeredaccount");
-document.getElementById("account-btn").textContent = registeredaccount;
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const menuItems = [];
-    const menuItemsElements = document.querySelectorAll(".menu-item");
-
-    menuItemsElements.forEach(item => {
-        const itemName = item.querySelector(".menu-name").innerText;
-        const priceText = item.querySelector(".menu-price").textContent;
-        const price = parseInt(priceText.replace(/\D/g, ""));
-        const image = item.querySelector("img").src;
-
-        menuItems.push({
-            name: itemName,
-            price: price,
-            image: image
-        });
-    });
-
-    localStorage.setItem("bakeryMenuItems", JSON.stringify(menuItems));
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector("input[type='search']");
-    const searchButton = document.querySelector("button");
-    const menuContainer = document.querySelector(".menu-grid");
-    const menuTitle = document.getElementById("menu-title");
-
-    const bakeryMenuItems = JSON.parse(localStorage.getItem("bakeryMenuItems")) || [];
-    const appetizerMenuItems = JSON.parse(localStorage.getItem("appetizerMenuItems")) || [];
-    const beverageMenuItems = JSON.parse(localStorage.getItem("BeverageCategoriesMenuItems")) || [];
-    const allMenuItems = [...bakeryMenuItems, ...appetizerMenuItems, ...beverageMenuItems];
-
-    function filterMenu() {
-        const searchQuery = searchInput.value.toLowerCase();
-        const filteredItems = allMenuItems.filter(item =>
-            item.name.toLowerCase().includes(searchQuery)
-        );
-
-        menuContainer.innerHTML = '';
-
-        if (filteredItems.length > 0) {
-            filteredItems.forEach(item => {
-                const menuItemElement = document.createElement('div');
-                menuItemElement.classList.add('menu-item');
-                menuItemElement.innerHTML = `
-                    <img src="${item.image}">
-                    <div class="menu-details">
-                        <div class="menu-name">${item.name}</div>
-                        <div class="menu-price">ราคา ${item.price} บาท</div>
-                        <button class="cart-button"><i class='bx bx-basket'></i></button>
-                    </div>
-                `;
-                menuContainer.appendChild(menuItemElement);
-            });
-            menuTitle.innerText = "เมนูการค้นหา";
-        } else {
-            menuTitle.innerText = "ไม่มีเมนูที่ตรงกับการค้นหา";
-        }
-    }
 
     searchButton.addEventListener("click", filterMenu);
     searchInput.addEventListener("input", function () {
@@ -187,4 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
             filterMenu();
         }
     });
+
+    initializeCart();
 });

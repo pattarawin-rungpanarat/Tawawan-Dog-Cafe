@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     orderHTML += "</table>";
     orderDetailsContainer.innerHTML = orderHTML;
-    totalQuantityContainer.textContent = `จำนวนสินค้าทั้งหมด: ${totalQuantity}`;
+    totalQuantityContainer.textContent = `จำนวนสินค้าทั้งหมด: ${totalQuantity} ชิ้น`;
     totalPriceContainer.textContent = `ราคารวมทั้งหมด: ${totalPrice} บาท`;
 });
 

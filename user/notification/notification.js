@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let orders = JSON.parse(localStorage.getItem("userorders")) || [];
     let notifications = JSON.parse(localStorage.getItem("userNotifications")) || [];
     let notificationContainer = document.getElementById("notification-container");
+    
 
     if (orders.length === 0 && notifications.length === 0) {
         notificationContainer.innerHTML = "<i class='bx bx-message-dots'></i><br><p>ไม่มีการแจ้งเตือน</p>";
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="menu-item">
                     <i class='bx bx-bell'></i>
                     <div class="menu-details-notification">
-                        <div class="menu-order">
+                        <div class="menu-order" onclick="viewOrder(${item.id})">
                             <div class="menu-name">${item.message}
                                 <div class="menu-topic">(${item.date})</div>
                             </div>

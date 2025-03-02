@@ -19,49 +19,56 @@ document.addEventListener("DOMContentLoaded", function () {
         notificationContainer.innerHTML = "<i class='bx bx-message-dots'></i><br><p>ไม่มีการแจ้งเตือน</p>";
         return;
     }
-    
-    orders.sort((a, b) => new Date(b.date) - new Date(a.date));
-    orders.forEach(order => {
-        let orderElement = document.createElement("div");
-        orderElement.classList.add("menu-grid");
-        orderElement.innerHTML = `
-            <div class="menu-item" id="notification-${order.id}">
-                <i class='bx bx-bell'></i>
-                <div class="menu-details">
-                    <div class="menu-order" onclick="viewOrder(${order.id})">
-                        <div class="menu-name">สั่งออเดอร์เสร็จสิ้น
-                            <div class="menu-topic">(${order.date})</div>
-                        </div>
-                    </div>
-                    <button class="cart-button" onclick="deleteNotificationorder(${order.id})">
-                        <i class='bx bx-trash'></i>
-                    </button>
-                </div>
-            </div>
-        `;
-        notificationContainer.prepend(orderElement);
-    });
-    notifications.forEach(notification => {
+
+    orders.forEach(order => order.type = "order");
+    notifications.forEach(notification => notification.type = "notification");
+
+    let allNotifications = [...orders, ...notifications];
+
+    allNotifications.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    allNotifications.forEach(item => {
         let notificationElement = document.createElement("div");
         notificationElement.classList.add("menu-grid");
-        notificationElement.innerHTML = `
-            <div class="menu-item">
-                <i class='bx bx-bell'></i>
-                <div class="menu-details-notification">
-                    <div class="menu-order">
-                        <div class="menu-name">${notification.message}
-                            <div class="menu-topic">(${notification.date})</div>
+
+        if (item.type === "order") {
+            notificationElement.innerHTML = `
+                <div class="menu-item" id="notification-${item.id}">
+                    <i class='bx bx-bell'></i>
+                    <div class="menu-details">
+                        <div class="menu-order" onclick="viewOrder(${item.id})">
+                            <div class="menu-name">สั่งออเดอร์เสร็จสิ้น
+                                <div class="menu-topic">(${item.date})</div>
+                            </div>
                         </div>
+                        <button class="cart-button" onclick="deleteNotificationorder(${item.id})">
+                            <i class='bx bx-trash'></i>
+                        </button>
                     </div>
-                    <button class="cart-button" onclick="deleteNotificationnotification(${notification.id})">
-                        <i class='bx bx-trash'></i>
-                    </button>
                 </div>
-            </div>
-        `;
+            `;
+        } else if (item.type === "notification") {
+            notificationElement.innerHTML = `
+                <div class="menu-item">
+                    <i class='bx bx-bell'></i>
+                    <div class="menu-details-notification">
+                        <div class="menu-order">
+                            <div class="menu-name">${item.message}
+                                <div class="menu-topic">(${item.date})</div>
+                            </div>
+                        </div>
+                        <button class="cart-button" onclick="deleteNotificationnotification(${item.id})">
+                            <i class='bx bx-trash'></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
         notificationContainer.prepend(notificationElement);
     });
 });
+
 
 function viewOrder(orderId) {
     localStorage.setItem("selectedOrder", orderId);

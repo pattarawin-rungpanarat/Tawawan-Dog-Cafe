@@ -198,6 +198,10 @@ button:active {
     width: 100%;
     position: relative;
 }
+.menu-name p{
+    width: 80%;
+    margin: 0;
+}
 .menu-price {
     margin: 10px;
     font-size: 16px;

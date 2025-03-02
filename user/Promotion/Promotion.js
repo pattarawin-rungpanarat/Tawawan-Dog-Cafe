@@ -41,11 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="menu-details">
                         <div class="menu-name">${promo.name} </div>
                         <div class="menu-price" id="menu-price">
-                            รายละเอียด: ${promo.condition}
+                            รายละเอียด : ${promo.condition}
                             ${promo.type === "แถม" ? "" : ""}
                             ${promo.type === "ส่วนลด" ? "" : ""}
-                        </div>
-                        <div class="date">
                             <div class="pomo-expired">หมดเขต: ${promo.endDate}</div>
                         </div>
                     </div>

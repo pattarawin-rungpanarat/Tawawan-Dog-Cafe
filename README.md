@@ -19,7 +19,7 @@ This project is part of the Frontend Software Development and Software Requireme
     - **แจ้งเตือนสำหรับผู้ดูแลระบบ**: เจ้าของร้านจะได้รับการแจ้งเตือนเมื่อมีการสั่งออร์เดอร์ใหม่ เพื่อให้สามารถตรวจสอบและจัดการออร์เดอร์ได้ทันที
 
 ## Tech stack Frontend
--   Html
+-   Html  HTML5
 -   css
 -   javascript
 ## Team Job position

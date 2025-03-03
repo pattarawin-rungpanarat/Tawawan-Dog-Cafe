@@ -19,9 +19,9 @@ This project is part of the Frontend Software Development and Software Requireme
     - **แจ้งเตือนสำหรับผู้ดูแลระบบ**: เจ้าของร้านจะได้รับการแจ้งเตือนเมื่อมีการสั่งออร์เดอร์ใหม่ เพื่อให้สามารถตรวจสอบและจัดการออร์เดอร์ได้ทันที
 
 ## Tech stack Frontend
--   Html
--   css
--   javascript
+- HTML <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="30" height="20" /> </a> 
+-   css  <a href="https://www.w3.org/TR/CSS/#css"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="30" height="20" /> </a> 
+-   javascript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="30" height="20" /> </a> 
 ## Team Job position
 | **Student ID** | **Name**                  | **Position**                          |
 |-----------------|---------------------------|---------------------------------------|
@@ -30,6 +30,7 @@ This project is part of the Frontend Software Development and Software Requireme
 | 67023110        | Aekkaphat Ainsawat          | UI Design                             |
 | 67026416        | Nittaya Pana                | UI Design                             |
 | 67026427        | Pattarawin Rungpanarat      | UX/UI Development (HTML/CSS and Script - All) |
+
 ## Contact
 หากมีคำถาม สามารถติดต่อผู้ดูแลโปรเจคได้ที่:
 -   อีเมล: 67026427@gmail.com

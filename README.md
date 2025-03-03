@@ -23,12 +23,13 @@ This project is part of the Frontend Software Development and Software Requireme
 -   css
 -   javascript
 ## Team Job position
-| **Student ID** | **Name**| Position|
-| 67022568 | Chanisara Rakpho | UI Design |
-| 67022692 | Pannawat Hwangmontri | UI Design |
-| 67023110 |  Aekkaphat Ainsawat | UI Design |
-| 67026416 | Nittaya Pana | UI Design |
-| 67026427 | Pattarawin Rungpanarat | UX/UI Development (HTML/CSS and Script - All) |
+| **Student ID** | **Name**                  | **Position**                          |
+|-----------------|---------------------------|---------------------------------------|
+| 67022568        | Chanisara Rakpho           | UI Design                             |
+| 67022692        | Pannawat Hwangmontri        | UI Design                             |
+| 67023110        | Aekkaphat Ainsawat          | UI Design                             |
+| 67026416        | Nittaya Pana                | UI Design                             |
+| 67026427        | Pattarawin Rungpanarat      | UX/UI Development (HTML/CSS and Script - All) |
 ## Contact
 หากมีคำถาม สามารถติดต่อผู้ดูแลโปรเจคได้ที่:
 -   อีเมล: 67026427@gmail.com

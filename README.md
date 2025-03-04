@@ -7,6 +7,7 @@ This project is part of the Frontend Software Development and Software Requireme
 - [Tech stack Frontend](#Tech%20stack%20Frontend)
 - [Team Job position](#Team%20Job%20position)
 - [Contact](#Contact)
+- [Demo](#demo)
 
 ## Features
  - **การจัดการออร์เดอร์**: ให้เจ้าของร้านสามารถจัดการและติดตามออร์เดอร์ของลูกค้าได้แบบเรียลไทม์ 

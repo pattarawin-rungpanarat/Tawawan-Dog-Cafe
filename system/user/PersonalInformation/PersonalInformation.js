@@ -1,7 +1,7 @@
 function logout() {
     let confirmlogout = confirm("คุณต้องการออกจากระบบหรือไม่?");
     if (confirmlogout) {
-        window.location.href = "../../../frist.html";
+        window.location.href = "../../../index.html";
     }
 }
 

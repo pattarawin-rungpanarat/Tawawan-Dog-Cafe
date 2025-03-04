@@ -11,7 +11,7 @@ function logout() {
             localStorage.removeItem("registeredpassword");
         }
 
-        window.location.href = "../../../frist.html";
+        window.location.href = "../../../index.html";
     }
 }
 document.addEventListener("DOMContentLoaded", function () {

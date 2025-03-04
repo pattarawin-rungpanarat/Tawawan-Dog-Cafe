@@ -26,11 +26,11 @@ This project is part of the Frontend Software Development and Software Requireme
 - **ระบบคำนวณโปรโมชั่น**: ไม่สามารถคำนวณส่วนลดและสิทธิพิเศษตามเงื่อนไขของโปรโมชั่นที่กำหนด
 
 ## Tech stack Frontend
-- HTML <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="30" height="20" /> </a> 
--   css  <a href="https://www.w3.org/TR/CSS/#css"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="30" height="20" /> </a> 
--   javascript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="30" height="20" /> </a> 
+- HTML <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/html5-colored.svg" width="30" height="20" /> </a> 
+-   css  <a href="https://www.w3.org/TR/CSS/#css" target="_blank"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/css3-colored.svg" width="30" height="20" /> </a> 
+-   javascript <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/javascript-colored.svg" width="30" height="20" /> </a> 
 ## User Manual
-<a href="https://docs.google.com/document/d/1bmrnDjRfhjy6fccOX2t8voAveQUpMmFcDzXcZQxAIyI/edit?usp=sharing">คู่มือการใช้งาน</a> 
+<a href="https://docs.google.com/document/d/1bmrnDjRfhjy6fccOX2t8voAveQUpMmFcDzXcZQxAIyI/edit?usp=sharing" target="_blank">User Manual  Tawawan Dog Café</a> 
 ## Team Job position
 | **Student ID** | **Name**                  | **Position**                          |
 |-----------------|---------------------------|---------------------------------------|

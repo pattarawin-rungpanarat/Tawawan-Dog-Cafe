@@ -7,6 +7,7 @@ This project is part of the Frontend Software Development and Software Requireme
 - [Completed Functions](#completed-functions)
 - [Incomplete Functions](#incomplete-functions)
 - [Tech stack Frontend](#Tech%20stack%20Frontend)
+- [User Manual](#user-manual)
 - [Team Job position](#Team%20Job%20position)
 - [Contact](#Contact)
 - [Demo](#demo)

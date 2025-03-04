@@ -36,7 +36,7 @@ This project is part of the Frontend Software Development and Software Requireme
 | 67022692        | Pannawat Hwangmontri        | UI Design                             |
 | 67023110        | Aekkaphat Ainsawat          | UI Design                             |
 | 67026416        | Nittaya Pana                | UI Design                             |
-| 67026427        | Pattarawin Rungpanarat      | UX/UI Development & Front-End Developer |
+| 67026427        | Pattarawin Rungpanarat      | UX/UI Design & Front-End Developer |
 
 ## Demo
 https://tawawan-dog-cafe.onrender.com
